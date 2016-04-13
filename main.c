@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "header.h"
+
 int main(int argc, char **argv)
 {
 	int     k;
@@ -20,25 +22,35 @@ int main(int argc, char **argv)
 	{
 		while (argv[k])
 		{
-			solve_map(read_map(argv[k]));
+			ft_solve_map(ft_read_map(argv[k]));
 			k++;
 		}
 	}
 	else
 	{
 		//read in map from the standard input
+		ft_solve_map(0); //a guess at the solution
 	}
 }
 
-int read_map(char *file_name)
+int ft_read_map(char *file_name)
 {
 	int     fd;
 
-	fd = open(file_name, O_RDONLY);
-	return(fd);
-	//close(fd); //dont forget
+	if !(fd = open(file_name, O_RDONLY))
+		return (-1);
+	else
+		return (fd);
 }
 
-void solve_map(int fd)
+void ft_solve_map(int fd)
 {
+	if (fd == -1) || !(ft_testmap(fd, ft_map_description(fd)))
+		write(1, "map error\n", 10);
+	else
+	{
+		ft_display_map(ft_scan_map_reduction(fd, tmap.start_pos));
+	}
+	if (fd > 1)
+		close(fd);
 }
