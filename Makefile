@@ -1,18 +1,14 @@
-NAME = ft_display_file
-
-SRCS = main.c controls.c
-
-INC = header.h
+NAME = bsq
+SRCS = main.c header.h functions.c map_setup.c
+CC = gcc
+CFLAGS = -c -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c -Wall -Wextra -Werror $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS)
 
 clean:
-	rm -Rf $(OBJS) file.o
-
-fclean: clean
-	rm -Rf $(NAME)
+	rm -Rf $(NAME) 
 
 re: fclean all
