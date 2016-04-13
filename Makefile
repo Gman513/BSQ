@@ -1,5 +1,5 @@
 NAME = bsq
-SRCS = main.c header.h
+SRCS = main.c header.h functions.c
 CC = gcc
 CFLAGS = -c -Wall -Werror -Wextra
 

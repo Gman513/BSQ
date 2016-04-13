@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khansman, ghavnga <marvin@42.fr>           +#+  +:+       +#+        */
+/*   By: khansman, ghavenga                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/12 13:05:22 by khansman          #+#    #+#             */
 /*   Updated: 2016/04/13 13:42:00 by khansman         ###   ########.fr       */
