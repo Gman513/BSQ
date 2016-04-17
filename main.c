@@ -49,8 +49,8 @@ void ft_solve_map(int fd)
 		write(1, "map error\n", 10);
 	else
 	{
-		ft_display_map(ft_scan_map_reduction(fd, tmap.start_pos));
-		//ft_display_map(ft_scan_map_expansion(fd, tmap.start_pos));
+		ft_display_map(ft_scan_map_reduction(fd));
+		//ft_display_map(ft_scan_map_expansion(fd));
 	}
 	if (fd > 1)
 		close(fd);
