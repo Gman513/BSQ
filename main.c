@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	int     k;
 
-//log usage
+//log usage function needs to be added
 	k = 1;
 	if (argc > k)
 	{
@@ -37,7 +37,7 @@ int ft_read_map(char *file_name)
 {
 	int     fd;
 
-	if !(fd = open(file_name, O_RDONLY))
+	if !(fd = open(file_name, O_RDONLY)) //need to open in stream mode...
 		return (-1);
 	else
 		return (fd);
@@ -45,11 +45,12 @@ int ft_read_map(char *file_name)
 
 void ft_solve_map(int fd)
 {
-	if (fd == -1) || !(ft_testmap(fd, ft_map_description(fd)))
+	if (fd == -1) || !(ft_testmap(fd, ft_map_description(fd)))//need to reset the file pointer possition after this call
 		write(1, "map error\n", 10);
 	else
 	{
 		ft_display_map(ft_scan_map_reduction(fd, tmap.start_pos));
+		//ft_display_map(ft_scan_map_expansion(fd, tmap.start_pos));
 	}
 	if (fd > 1)
 		close(fd);
