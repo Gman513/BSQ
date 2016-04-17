@@ -14,8 +14,14 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-typedef struct
+typedef struct	ssquare
 {
 	unsigned int	start;
 	unsigned int	size;
-}					tsquare;
+}				tsquare;
+
+typedef	struct	svalue
+{
+	char			value;
+	struct	svalue	*next;
+}				tvalue;
