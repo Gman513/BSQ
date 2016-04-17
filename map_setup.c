@@ -13,8 +13,17 @@
 #include "header.h"
 
 //ft_test_map, ft_map_description
-tmap	ft_map_description(int fd)
+tmap_info	ft_map_description(int fd)
 {
-	tmap	map;
+	tmap_info	map;
+	char		value;
 	
+	read(fd, value, 1);
+	while (value != '\n' && value >= '0' && value <= '9') )
+	{
+		map.size = (map.lines * 10) + (value - '0');
+		read(fd, value, 1);
+	}
+	if (value != '\n')
+		map.empty = value;
 }

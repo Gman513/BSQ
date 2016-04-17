@@ -25,3 +25,11 @@ typedef	struct	svalue
 	char			value;
 	struct	svalue	*next;
 }				tvalue;
+
+typedef	struct	smap_info
+{
+	unsigned int	size;
+	char			empty;
+	char			obstacle;
+	char			full;
+}				tmap_info;
