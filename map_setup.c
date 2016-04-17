@@ -50,35 +50,43 @@ int	ft_test_map_info(tmap_info info)
 	return (1);
 }
 
-int	ft_test_map(int fd, tmap_info info)
+int	ft_test_map_data(int fd)
 {
 	unsigned int	length;
 	unsigned int	line_len;
-	char			buff;
 	
 	length = 0;
 	line_len = -1;
+	while (read(fd, &buff, 1))
+	{
+		if (buff == info.empty || buff == info.obstacle || buff == '\n')
+		{
+			if (line_len == -1 && buff != '\n')
+				length++;
+			else if (buff == '\n')
+			{
+				if (line_len > 0 && line_len != length)
+					return (0);
+				line_len = 0;
+			}
+			else
+				line_len++;  //need to run through to check
+		}
+		else return (0);
+	}
+	return (1);
+}
+
+int	ft_test_map(int fd, tmap_info info)
+{
+	char			buff;
+	
 	read(fd, &buff, 1);
 	if (buff != '\n')
 		return (0);
 	else if !(ft_test_map_info(info))
 		return (0);
-	else while (read(fd, &buff, 1))
-		{
-			if (buff == info.empty || buff == info.obstacle || buff == '\n')
-			{
-				if (line_len == -1 && buff != '\n')
-					length++;
-				else if (buff == '\n')
-				{
-					if (line_len > 0 && line_len != length)
-						return (0);
-					line_len = 0;
-				}
-				else
-					line_len++;  //need to run through to check
-			}
-			else return (0);
-		}
-	else return (1);
+	else if !(ft_test_map_data(fd))
+		return (0);
+	return (1);
 }
