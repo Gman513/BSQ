@@ -14,6 +14,8 @@
 
 int		ft_read_map(char *file_name);
 void	ft_solve_map(int fd);
+tsquare	ft_scan_map_reduction(int fd);
+void	ft_display_map(tsquare);
 
 int 	main(int argc, char **argv)
 {
@@ -40,10 +42,10 @@ int		ft_read_map(char *file_name)
 {
 	int     fd;
 
-	if !(fd = open(file_name, O_RDONLY)) //need to open in stream mode...
-		return (-1);
-	else
+	if (fd = open(file_name, O_RDONLY)) //need to open in stream mode...
 		return (fd);
+	else
+		return (-1);
 }
 
 void	ft_solve_map(int fd)
