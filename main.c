@@ -12,7 +12,10 @@
 
 #include "bsq.h"
 
-int main(int argc, char **argv)
+int		ft_read_map(char *file_name);
+void	ft_solve_map(int fd);
+
+int 	main(int argc, char **argv)
 {
 	int     k;
 
@@ -33,7 +36,7 @@ int main(int argc, char **argv)
 	}
 }
 
-int ft_read_map(char *file_name)
+int		ft_read_map(char *file_name)
 {
 	int     fd;
 
@@ -43,7 +46,7 @@ int ft_read_map(char *file_name)
 		return (fd);
 }
 
-void ft_solve_map(int fd)
+void	ft_solve_map(int fd)
 {
 	if (fd == -1) || !(ft_testmap(fd, ft_map_description(fd)))//need to reset the file pointer possition after this call
 		write(1, "map error\n", 10);
