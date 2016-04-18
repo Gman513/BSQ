@@ -18,7 +18,7 @@ tmap_info	ft_map_description(int fd)
 	tmap_info	map;
 	char		value;
 	
-	map = null; //needs to be tested
+	map = NULL; //needs to be tested
 	read(fd, &value, 1);
 	while (value != '\n' && value >= '0' && value <= '9') )
 	{

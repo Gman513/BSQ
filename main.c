@@ -14,6 +14,8 @@
 
 int		ft_read_map(char *file_name);
 void	ft_solve_map(int fd);
+tsquare	ft_scan_map_reduction(int fd);
+void	ft_display_map(tsquare);
 
 int 	main(int argc, char **argv)
 {
