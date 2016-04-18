@@ -40,10 +40,10 @@ int		ft_read_map(char *file_name)
 {
 	int     fd;
 
-	if !(fd = open(file_name, O_RDONLY)) //need to open in stream mode...
-		return (-1);
-	else
+	if (fd = open(file_name, O_RDONLY)) //need to open in stream mode...
 		return (fd);
+	else
+		return (-1);
 }
 
 void	ft_solve_map(int fd)
