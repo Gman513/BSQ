@@ -1,5 +1,5 @@
 NAME = bsq
-SRCS = main.c header.h functions.c map_setup.c display.c
+SRCS = main.c bsq.h functions.c map_setup.c display.c
 CC = gcc
 CFLAGS = -c -Wall -Werror -Wextra
 
