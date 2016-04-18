@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-include "header.h"
+include "bsq.h"
 
 //this file is to implement the linked list reduction method.
 tsquare	ft_scan_map_reduction(int fd)

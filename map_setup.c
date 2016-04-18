@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "bsq.h"
 
 //ft_test_map, ft_map_description
 tmap_info	ft_map_description(int fd)

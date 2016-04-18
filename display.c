@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-include "header.h"
+include "bsq.h"
 
 //this file is to handle how the map shall be displayed
 
