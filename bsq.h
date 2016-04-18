@@ -38,7 +38,7 @@ typedef	struct	smap_info
 	int				start_pos;
 }				tmap_info;
 
-/*Insert nice comment why we need these to reduce memory usage*/
+/*Insert EXTRA nice comment why we need these to reduce memory usage*/
 tmap_info	map_info;
 tvalue		*map_list;
 int			fd;
