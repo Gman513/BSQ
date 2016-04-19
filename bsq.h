@@ -23,16 +23,17 @@ typedef struct	ssquare
 	unsigned int	size;
 }				tsquare;
 
-typedef	struct	svalue
+typedef	struct	smap_elem
 {
 	char			value;
 	unsigned int	num_pos;
 	struct svalue	*next;
-}				tvalue;
+}				tmap_elem;
 
 typedef	struct	smap_info
 {
-	unsigned int	size;
+	unsigned int	map_lines;
+	unsigned int	line_len;
 	char			empty;
 	char			obstacle;
 	char			full;
@@ -40,7 +41,7 @@ typedef	struct	smap_info
 }				tmap_info;
 
 /*Insert EXTRA nice comment why we need these to reduce memory usage*/
-tmap_info	map_info;//contails 
+tmap_info	map_info;//contains info on the current map.
 tvalue		*map_list;//pointer to the start of our linked list
 int			fd;
 
