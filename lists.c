@@ -13,15 +13,17 @@
 #include "bsq.h"
 
 //Linked List Functions can go down here unless we require a new file
-t_map_elem	*ft_create_elem(int empty, int obstacle)
+t_map_elem	*ft_create_elem(char delimiter, UINT num_empty, UINT num_delim)
 {
-	t_list	*list;
+	t_map_elem	*list;
 
 	list = NULL;
-	list = malloc(sizeof(t_list));
+	list = malloc(sizeof(t_map_elem));
 	if (list)
 	{
-		list->data = data;
+		list->delimiter = delimiter;
+		list->num_empty = num_empty;
+		list->num_delim = num_delim;
 		list->next = NULL;
 	}
 	return (list);
