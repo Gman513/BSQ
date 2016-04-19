@@ -61,10 +61,21 @@ tsquare			ft_scan_map_reduction(void)
 {
 	tsquare		current_scan;
 	tsquare		largest_scan;
+	tsquare		scan_tracker;
 	tmap_elem	*scan_elem_start;
 	tmap_elem	*scan_elem_current;
 	
+	scan_elem_start = map_list;
 	while(current_scan.y < (map_info.lines - largest_scan.y))
 	{
+		scan_elem_current = scan elem_start;
+		current_scan.size = scan_elem_current.num_empty;
+		while (current_scan.size > largest_scan.size && current_scan.size > current_scan.y)
+		{
+		}
+		if (current_scan.size > largest_scan.size)
+			largest_scan = current_scan;
+		reset_square(current_scan);
+		scan_elem_start = scan_elem_start.next;
 	}
 }
