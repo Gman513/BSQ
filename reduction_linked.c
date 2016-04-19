@@ -56,3 +56,9 @@ tsquare			ft_scan_map_reduction(void);
 		pos++;
 	}
 }
+
+//Linked List Functions can go down here unless we require a new file
+char *ft_create_elm(int empty, int obstacle)
+{
+	
+}
