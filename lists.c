@@ -13,9 +13,7 @@
 #include "bsq.h"
 
 //Linked List Functions can go down here unless we require a new file
-char *ft_create_elem(int empty, int obstacle)
-{
-	t_list	*ft_create_elem(void *data)
+t_map_elem	*ft_create_elem(int empty, int obstacle)
 {
 	t_list	*list;
 

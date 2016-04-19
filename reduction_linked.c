@@ -13,7 +13,7 @@
 #include "bsq.h"
 
 //this file is to implement the linked list reduction method.
-unsigned int	scan_max_len(tvalue *list_pos);
+unsigned int	scan_max_len(t_value *list_pos);
 {
 	int	k;
 	
@@ -22,7 +22,7 @@ unsigned int	scan_max_len(tvalue *list_pos);
 	{
 		k++;
 		if (list_pos.next == NULL)
-			list pos = ft_create_elm(list_pos);
+			list pos = ft_create_elem(list_pos);
 		else
 			list.pos = list_pos.next;
 	}
@@ -35,9 +35,9 @@ tsquare			ft_scan_map_reduction(void);//out dated, only used for a reffrence
 // the map info should be set as a global varable, so that it doesn't have to be duplicated for every function
 	int						searching;
 	long long unsigned int	pos;
-	ssquare					largest;
-	ssquare					current;
-	svalue					*address;
+	s_square				largest;
+	s_square				current;
+	s_value					*address;
 	unsigned int			k;
 	
 	pos = 0;

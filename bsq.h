@@ -17,14 +17,14 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-typedef struct	ssquare
+typedef struct	s_square
 {
 	unsigned int	start_x;
 	unsigned int	start_y;
 	unsigned int	size;
-}				tsquare;
+}				t_square;
 
-typedef	struct	smap_elem
+typedef	struct	s_map_elem
 {
 	char				delimiter;
 	unsigned int		num_empty;
@@ -32,7 +32,8 @@ typedef	struct	smap_elem
 	struct smap_elem	*next;
 }				tmap_elem;
 
-typedef	struct	smap_info
+
+typedef	struct	s_map_info
 {
 	unsigned int	map_lines;
 	unsigned int	line_len;
@@ -40,13 +41,17 @@ typedef	struct	smap_info
 	char			obstacle;
 	char			full;
 	unsigned int	start_pos;
-}				tmap_info;
+}				t_map_info;
 
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to 
 repeatedly pass them back and forth between functions."*/
 tmap_info	map_info;//contains info on the current map.
+<<<<<<< HEAD
 tmap_elem	*map_list;//pointer to the start of our linked list
+=======
+t_value		*map_list;//pointer to the start of our linked list
+>>>>>>> f2889902775105ee72e2ccf1585cb71d9e674581
 int			fd;
 
 #endif
