@@ -13,8 +13,8 @@
 #include "bsq.h"
 
 int		ft_read_map(char *file_name);
-void	ft_solve_map(int fd);
-tsquare	ft_scan_map_reduction(int fd);
+void	ft_solve_map(void);
+tsquare	ft_scan_map_reduction(void);
 void	ft_display_map(tsquare);
 
 int 	main(int argc, char **argv)
@@ -27,25 +27,26 @@ int 	main(int argc, char **argv)
 	{
 		while (argv[k])
 		{
-			ft_solve_map(ft_read_map(argv[k]));
+			ft_read_map(argv[k]);
+			ft_solve_map;
 			k++;
 		}
 	}
 	else
 	{
 		//read in map from the standard input
-		ft_solve_map(0); //a guess at the solution
+		fd = 0;
+		ft_solve_map;//need a function to handle if multiple filenames are used.
 	}
 }
 
 int		ft_read_map(char *file_name)
 {
-	int     fd;
 
-	if (fd = open(file_name, O_RDONLY)) //need to open in stream mode...
-		return (fd);
+	if (fd = open(file_name, O_RDONLY))
+		return (1);
 	else
-		return (-1);
+		return (0);
 }
 
 void	ft_solve_map(int fd)
