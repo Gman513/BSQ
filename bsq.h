@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bsq.h                                          :+:      :+:    :+:   */
+/*   bsq.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khansman, ghavenga                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -41,7 +41,9 @@ typedef	struct	smap_info
 	unsigned int	start_pos;
 }				tmap_info;
 
-/*Insert EXTRA nice comment why we need these to reduce memory usage*/
+/*"The following global variables are accessed multiple times throughout the 
+programs functions, making it an unnecessary use of cpu cycles and memory to 
+repeatedly pass them back and forth between functions."*/
 tmap_info	map_info;//contains info on the current map.
 tvalue		*map_list;//pointer to the start of our linked list
 int			fd;
