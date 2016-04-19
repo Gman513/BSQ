@@ -47,11 +47,7 @@ typedef	struct	s_map_info
 programs functions, making it an unnecessary use of cpu cycles and memory to 
 repeatedly pass them back and forth between functions."*/
 tmap_info	map_info;//contains info on the current map.
-<<<<<<< HEAD
 tmap_elem	*map_list;//pointer to the start of our linked list
-=======
-t_value		*map_list;//pointer to the start of our linked list
->>>>>>> f2889902775105ee72e2ccf1585cb71d9e674581
 int			fd;
 
 #endif
