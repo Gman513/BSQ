@@ -26,7 +26,8 @@ typedef struct	ssquare
 typedef	struct	svalue
 {
 	char			value;
-	struct	svalue	*next;
+	unsigned int	num_pos;
+	struct svalue	*next;
 }				tvalue;
 
 typedef	struct	smap_info
@@ -35,12 +36,12 @@ typedef	struct	smap_info
 	char			empty;
 	char			obstacle;
 	char			full;
-	int				start_pos;
+	unsigned int	start_pos;
 }				tmap_info;
 
 /*Insert EXTRA nice comment why we need these to reduce memory usage*/
-tmap_info	map_info;
-tvalue		*map_list;
+tmap_info	map_info;//contails 
+tvalue		*map_list;//pointer to the start of our linked list
 int			fd;
 
 #endif
