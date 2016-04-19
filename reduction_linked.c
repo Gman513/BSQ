@@ -56,20 +56,3 @@ tsquare			ft_scan_map_reduction(void);
 		pos++;
 	}
 }
-
-//Linked List Functions can go down here unless we require a new file
-char *ft_create_elem(int empty, int obstacle)
-{
-	t_list	*ft_create_elem(void *data)
-{
-	t_list	*list;
-
-	list = NULL;
-	list = malloc(sizeof(t_list));
-	if (list)
-	{
-		list->data = data;
-		list->next = NULL;
-	}
-	return (list);
-}
