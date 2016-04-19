@@ -42,7 +42,7 @@ tsquare			ft_scan_map_reduction(void);
 	
 	pos = 0;
 	searching = 1;
-	address.next = ft_create_elm(NULL);
+	address.next = ft_create_elem(NULL);
 	while(searching)
 	{
 		current.start = pos;
@@ -58,7 +58,7 @@ tsquare			ft_scan_map_reduction(void);
 }
 
 //Linked List Functions can go down here unless we require a new file
-char *ft_create_elm(int empty, int obstacle)
+char *ft_create_elem(int empty, int obstacle)
 {
 	
 }
