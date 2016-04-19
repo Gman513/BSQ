@@ -19,16 +19,17 @@
 
 typedef struct	ssquare
 {
-	unsigned int	start;
+	unsigned int	start_x;
+	unsigned int	start_y;
 	unsigned int	size;
 }				tsquare;
 
 typedef	struct	smap_elem
 {
-	char			delimiter;
-	unsigned int	num_empty;
-	unsigned int	num_delim;
-	struct svalue	*next;
+	char				delimiter;
+	unsigned int		num_empty;
+	unsigned int		num_delim;
+	struct smap_elem	*next;
 }				tmap_elem;
 
 typedef	struct	smap_info
@@ -45,7 +46,7 @@ typedef	struct	smap_info
 programs functions, making it an unnecessary use of cpu cycles and memory to 
 repeatedly pass them back and forth between functions."*/
 tmap_info	map_info;//contains info on the current map.
-tvalue		*map_list;//pointer to the start of our linked list
+tmap_elem	*map_list;//pointer to the start of our linked list
 int			fd;
 
 #endif

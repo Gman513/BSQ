@@ -12,7 +12,6 @@
 
 #include "bsq.h"
 
-//ft_test_map, ft_map_description
 int	ft_map_description(void)
 {
 	char		value;
@@ -42,16 +41,16 @@ int	ft_test_map_info(tmap_info info)
 {
 	if (info.size < 1 || info.size == null)
 		return (0);
-	else if (info.empty == ('null' || '\n' || '\0')) //need to test notation
+	else if (info.empty == ('NULL' || '\n' || '\0')) //need to test notation
 		return (0);
-	else if (info.obstacle == ('null' || '\n' || '\0')) //need to test notation
+	else if (info.obstacle == ('NULL' || '\n' || '\0')) //need to test notation
 		return (0);
-	else if (info.full == ('null' || '\n' || '\0')) //need to test notation
+	else if (info.full == ('NULL' || '\n' || '\0')) //need to test notation
 		return (0);
 	return (1);
 }
 
-int	ft_test_map_data(int fd)
+int	ft_test_map_data(void)
 {
 	unsigned int	length;
 	unsigned int	line_len;

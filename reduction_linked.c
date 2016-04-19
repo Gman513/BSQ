@@ -29,7 +29,7 @@ unsigned int	scan_max_len(tvalue *list_pos);
 	return (k);
 }
 
-tsquare			ft_scan_map_reduction(void);
+tsquare			ft_scan_map_reduction(void);//out dated, only used for a reffrence 
 { //if this method is to validate the file while scanning it, then the file pointer
 // has to be set to the start of the map when it is called.
 // the map info should be set as a global varable, so that it doesn't have to be duplicated for every function
@@ -54,5 +54,17 @@ tsquare			ft_scan_map_reduction(void);
 		}
 		address = address.next;
 		pos++;
+	}
+}
+
+tsquare			ft_scan_map_reduction(void)
+{
+	tsquare		current_scan;
+	tsquare		largest_scan;
+	tmap_elem	*scan_elem_start;
+	tmap_elem	*scan_elem_current;
+	
+	while(current_scan.y < (map_info.lines - largest_scan.y))
+	{
 	}
 }
