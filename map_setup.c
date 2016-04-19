@@ -13,28 +13,29 @@
 #include "bsq.h"
 
 //ft_test_map, ft_map_description
-tmap_info	ft_map_description(int fd)
+int	ft_map_description(void)
 {
-	tmap_info	map;
 	char		value;
 	
-	map = NULL; //needs to be tested
+	map_info = NULL; //needs to be tested
 	read(fd, &value, 1);
 	while (value != '\n' && value >= '0' && value <= '9') )
 	{
-		map.size = (map.lines * 10) + (value - '0');
-		if (read(fd, &value, 1) == 0)
-			return (map.value = -1); //needs to be tested
+		map_info.map_lines = (map_info.map_lines * 10) + (value - '0');
+		if (!(read(fd, &value, 1))
+			return (0); //needs to be tested
 	}//defensive programming needs work
 	if (value != '\n')
-		map.empty = value;
-	read(fd, &value, 1);
+		map_info.empty = value;
+	if (!(read(fd, &value, 1)))
+		return (0);
 	if (value != '\n')
-		map.obstacle = obstacle;
-	read(fd, &value, 1);
+		map_info.obstacle = value;
+	if (!(read(fd, &value, 1)))
+		return (0);
 	if (value != '\n')
-		map.full = obstacle;
-	return (map);
+		map_info.full = value;
+	return (1);
 }
 
 int	ft_test_map_info(tmap_info info)

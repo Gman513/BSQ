@@ -25,8 +25,9 @@ typedef struct	ssquare
 
 typedef	struct	smap_elem
 {
-	char			value;
-	unsigned int	num_pos;
+	char			delimiter;
+	unsigned int	num_empty;
+	unsigned int	num_delim;
 	struct svalue	*next;
 }				tmap_elem;
 
