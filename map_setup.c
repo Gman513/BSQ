@@ -38,7 +38,7 @@ int	ft_map_description(void)
 	return (1);
 }
 
-int	ft_test_map_info(tmap_info info)
+int	ft_test_map_info(t_map_info info)
 {
 	if (info.size < 1 || info.size == null)
 		return (0);
@@ -78,7 +78,7 @@ int	ft_test_map_data(int fd)
 	return (1);
 }
 
-int	ft_test_map(int fd, tmap_info info)
+int	ft_test_map(int fd, t_map_info info)
 {
 	char			buff;
 	

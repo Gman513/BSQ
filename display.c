@@ -14,6 +14,6 @@
 
 //this file is to handle how the map shall be displayed
 
-void	ft_display_map(tsquare)
+void	ft_display_map(t_square)
 {
 }
