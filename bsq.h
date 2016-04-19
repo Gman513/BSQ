@@ -13,6 +13,8 @@
 #ifndef __BSQ_H__
 #define __BSQ_H__
 
+#define UINT unsigned int
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -29,8 +31,8 @@ typedef	struct	s_map_elem
 	char				delimiter;
 	unsigned int		num_empty;
 	unsigned int		num_delim;
-	struct smap_elem	*next;
-}				tmap_elem;
+	struct s_map_elem	*next;
+}				t_map_elem;
 
 
 typedef	struct	s_map_info
