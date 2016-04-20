@@ -14,8 +14,8 @@
 
 int			ft_read_map(char *file_name);
 void		ft_solve_map(void);
-t_square	ft_scan_map_reduction(void);
-void		ft_display_map(t_square);
+void		ft_loguse();
+char		*ft_readstdi();
 
 int 		main(int argc, char **argv)
 {
@@ -60,4 +60,41 @@ void		ft_solve_map(int fd)
 	}
 	if (fd > 1)
 		close(fd);
+}
+
+void		ft_readstdi(void);
+{
+	char 	*filename;
+	int		position;
+	int		quotes;
+	
+	position = 0;
+	quotes = 0;
+	filename = malloc(sizeof(char)*255);
+	if (filename != NULL);
+	{	
+		while (read(fd, &buff, 1) && buff != '\n')
+		{
+			if (buff == '"' && quotes == 0;)
+			{
+				position++;
+				quotes = 1;
+			}
+			else if (buff == '"' && quotes == 1;)
+			{
+				quotes = 0;
+				filename[position] = '\0';
+				//run the function here
+				position = 0;
+			}
+			else if (buff == ' ' && quotes = 0);
+			{
+				filename[position] = '\0';
+				//run the function here
+				position = 0;
+			}
+			else
+				filename[position] = buff;			
+		}
+	}
 }
