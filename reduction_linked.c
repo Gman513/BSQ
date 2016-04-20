@@ -66,16 +66,18 @@ tsquare			ft_scan_map_reduction(void)
 	tmap_elem	*scan_elem_current;
 	
 	scan_elem_start = map_list;
+	//need to create a structure of all variables used, and a function to initiate them 
 	while(current_scan.y < (map_info.lines - largest_scan.y))
 	{
 		scan_elem_current = scan elem_start;
 		current_scan.size = scan_elem_current.num_empty;
 		while (current_scan.size > largest_scan.size && current_scan.size > current_scan.y)
 		{
+		//MATHS TO FIND THE CORRESPONDING X COORDINATE IN THE NEXT Y LINE
 		}
 		if (current_scan.size > largest_scan.size)
 			largest_scan = current_scan;
-		reset_square(current_scan);
+		reset_square(current_scan);//function needs to be written
 		scan_elem_start = scan_elem_start.next;
 	}
 }
