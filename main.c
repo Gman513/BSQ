@@ -16,6 +16,7 @@ int			ft_read_map(char *file_name);
 void		ft_solve_map(void);
 void		ft_loguse();
 char		*ft_readstdi();
+void		ft_display_map(int start, int size,int length, char *map);
 
 int 		main(int argc, char **argv)
 {
@@ -96,5 +97,29 @@ void		ft_readstdi(void);
 			else
 				filename[position] = buff;			
 		}
+	}
+}
+
+void		ft_display_map(int start, int size, int length, char *map)
+{
+	int		position;
+	int		line;
+	char	temp;
+	
+	position = 0;
+	while (map[line])
+	{
+		while (map[line][position])
+		{
+			temp = map[line][position];
+			write(1,&temp,1);
+			position++;
+			if (temp = '\n')
+			{
+				line++;
+				position = 0;
+			}
+		}
+		
 	}
 }
