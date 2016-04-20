@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
+/*                                                                 CS^3       */
 /*                                                        :::      ::::::::   */
 /*   array_solution.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -11,6 +11,25 @@
 /* ************************************************************************** */
 
 include "bsq.h"
+
+int read_line_len(void)
+{
+	unsigned int	k;
+	char			buff;
+	
+	k = 0;
+	while (read(fd, &buff, 1) && buff != '\n');
+	if (buff != '\n')
+		return (0);
+	while (read(fd, &buff, 1) && buff != '\n')
+		k++;
+	if (buff != '\n')
+		return (0);
+	map_info.line_len = k;
+	if (!(close(fd)) || !(ft_read_map()))
+		return (0);
+	return (1);	
+}
 
 //these functions assume that map_info variables havr been initiated before they are run.
 int	ft_read_map_info(void) //need to write a sub function to reduce the number of lines, or create a loop...
@@ -53,9 +72,6 @@ int	ft_set_array(void)
 	
 	k = 0;
 	l = 0;
-	while (read(fd, &buff, 1) && buff != '\n')
-		map_info.line_len++;
-	reset_map_start;//need to write a function for this, and the code above...
 	if (map_info.line_len == 0 || buff != '\n')
 		return (0);
 	arr_row = malloc(sizeof(char) * map_info.line_len);
@@ -118,5 +134,6 @@ int	array_solution(void);
 		l = 0;
 		k++;
 	}
+	largest_solution = largest;
 	return (1);
 }
