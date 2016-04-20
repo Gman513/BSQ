@@ -28,6 +28,7 @@ int read_line_len(void)
 	map_info.line_len = k;
 	if (!(close(fd)) || !(ft_read_map()))
 		return (0);
+	while (read(fd, &buff, 1) && buff != '\n');
 	return (1);	
 }
 
