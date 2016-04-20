@@ -12,7 +12,7 @@
 
 include "bsq.h"
 
-int read_line_len(void)
+int ft_read_line_len(void)
 {
 	unsigned int	k;
 	char			buff;
@@ -106,7 +106,7 @@ int	array_solution(void);
 
 	k = 0;
 	l = 0;
-	if (!(ft_read_map_info) || !(ft_set_array))
+	if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
 	{
 		write(1, "map error\n", 10);
 		return (0);
