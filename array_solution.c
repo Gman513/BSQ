@@ -41,15 +41,15 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	return (1);
 }
 
-int	ft_set_map_array(void)
+int	ft_set_array(void)
 {
 	//This function assumes that the file pointer is already set to the starting point of the map.
 	//This function also makes use of global variables which store information regarding the map's setup.
-	char	buff;
-	char	*arr_row;
-	char	**arr_col;
-	int		k;
-	int		l;
+	char			buff;
+	char			*arr_row;
+	char			**arr_col;
+	unsigned int	k;
+	unsigned int	l;
 	
 	k = 0;
 	l = 0;
@@ -70,8 +70,53 @@ int	ft_set_map_array(void)
 			if (l != map_info.line_len)
 				return (0);
 			else
-				l = -1;
+				l = 0 - 1;
 		l++;
 		k++;
 	}
+	map_arr = malloc(sizeof(arr_col));
+	free arr_row;
+	free arr_col;
+	return (1);
+}
+
+int	array_solution(void);
+{
+	unsigned int	k;
+	unsigned int	l;
+	tsquare			current;
+	tsquare			largest;
+
+	k = 0;
+	l = 0;
+	if (!(ft_read_map_info) || !(ft_set_array))
+	{
+		write(1, "map error\n", 10);
+		return (0);
+	}
+	while (map_arr[k] && (k - largest.size) < map_info.size)
+	{
+		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
+		{
+			current.y = 0;
+			current.size = 0;
+			while (map_arr[k][l + current] == map_info.empty)
+				current.size++;
+			while(current.size > largest.size)
+			{
+				current.y++;
+				current.x = 0;
+				while (map_arr[k + current.y][k + current.x] == map_info.empty && current.x <= current.size)
+					current.x++;
+				if (current.x < current.size)
+					current.size = current.x;
+				if (current.y >= current.size && current.size > largest.size)
+					largest = current;
+			}
+			l++;
+		}
+		l = 0;
+		k++;
+	}
+	return (1);
 }
