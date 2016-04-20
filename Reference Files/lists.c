@@ -12,7 +12,6 @@
 
 #include "bsq.h"
 
-//Linked List Functions can go down here unless we require a new file
 t_map_elem	*ft_create_elem(char delimiter, UINT num_empty, UINT num_delim)
 {
 	t_map_elem	*list;
@@ -27,4 +26,12 @@ t_map_elem	*ft_create_elem(char delimiter, UINT num_empty, UINT num_delim)
 		list->next = NULL;
 	}
 	return (list);
+}
+
+t_map_elem	*ft_free_elem(t_map_elem)
+{
+	t_map_elem	*list;
+	
+	list = NULL;
+	
 }
