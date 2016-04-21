@@ -59,6 +59,7 @@ void		ft_readstdi(void)
 {
 	int		position;
 	int		quotes;
+	char	buff;
 	
 	position = 0;
 	quotes = 0;
@@ -79,7 +80,7 @@ void		ft_readstdi(void)
 				ft_solve_map();
 				position = 0;
 			}
-			else if (buff == ' ' && quotes = 0)
+			else if (buff == ' ' && quotes == 0)
 			{
 				file_name[position] = '\0';
 				ft_solve_map();
