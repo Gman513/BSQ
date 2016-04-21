@@ -1,12 +1,12 @@
 NAME = bsq
 SRCS = main.c bsq.h array_solution.c
-CC = gcc
-CFLAGS = -c -Wall -Werror -Wextra
+CC = gcc -o
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRCS)
+	$(CC) $(NAME) $(CFLAGS) $(SRCS)
 
 clean:
 	rm -Rf $(NAME) 
