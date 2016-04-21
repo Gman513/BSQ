@@ -31,6 +31,7 @@ int 		main(int argc, char **argv)
 		ft_readstdi();
 		return(0);
 	}
+	return (1);
 }
 
 int			ft_read_map(void)
@@ -61,6 +62,7 @@ void		ft_readstdi(void)
 {
 	int		position;
 	int		quotes;
+	char	buff;
 	
 	position = 0;
 	quotes = 0;
@@ -81,7 +83,7 @@ void		ft_readstdi(void)
 				ft_solve_map();
 				position = 0;
 			}
-			else if (buff == ' ' && quotes = 0)
+			else if (buff == ' ' && quotes == 0)
 			{
 				file_name[position] = '\0';
 				ft_solve_map();

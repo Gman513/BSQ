@@ -78,12 +78,7 @@ int	ft_set_array(void)
 	if (map_info.line_len == 0 || buff != '\n')
 		return (0);
 	//arr_row = malloc(sizeof(char) * map_info.line_len);
-	while (k <= map_info.map_lines)
-	{
-		arr_col[k] = (char *)malloc(sizeof(char)* map_info.line_len);//malloc(sizeof(arr_row))
-		k++;
-	}
-	k = 0;
+	arr_col = malloc(sizeof(char) * map_info.line_len * map_info.map_lines);//malloc(sizeof(arr_row))
 	while(read(fd, &buff, 1) && k <= map_info.map_lines)
 	{
 		if (buff != (map_info.empty || map_info.obstacle || '\n'))
