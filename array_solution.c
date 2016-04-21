@@ -98,7 +98,7 @@ int	ft_set_array(void)
 	return (1);
 }
 
-int	ft_array_solution(void);
+int	ft_array_solution(void)
 {
 	unsigned int	k;
 	unsigned int	l;

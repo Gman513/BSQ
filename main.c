@@ -54,7 +54,7 @@ void		ft_solve_map(void)
 	free(map_arr);
 }
 
-void		ft_readstdi(void);
+void		ft_readstdi(void)
 {
 	int		position;
 	int		quotes;
@@ -62,23 +62,23 @@ void		ft_readstdi(void);
 	position = 0;
 	quotes = 0;
 	file_name = malloc(sizeof(char)*255);
-	if (file_name != NULL);
+	if (file_name != NULL)
 	{	
 		while (read(fd, &buff, 1) && buff != '\n')
 		{
-			if (buff == '"' && quotes == 0;)
+			if (buff == '"' && quotes == 0)
 			{
 				position++;
 				quotes = 1;
 			}
-			else if (buff == '"' && quotes == 1;)
+			else if (buff == '"' && quotes == 1)
 			{
 				quotes = 0;
 				file_name[position] = '\0';
 				ft_solve_map();
 				position = 0;
 			}
-			else if (buff == ' ' && quotes = 0);
+			else if (buff == ' ' && quotes = 0)
 			{
 				file_name[position] = '\0';
 				ft_solve_map();
@@ -105,7 +105,7 @@ void		ft_display_map(void)
 			temp = map_arr[line][position];
 			write(1,&temp,1);
 			position++;
-			if (temp = '\n')
+			if (temp == '\n')
 			{
 				line++;
 				position = 0;

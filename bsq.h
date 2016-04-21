@@ -26,6 +26,7 @@ void		ft_display_map(void);
 int			ft_read_map_info(void);
 int			ft_read_line_len(void);
 int			ft_set_array(void);
+int			ft_array_solution(void);
 
 typedef struct	s_square
 {
@@ -50,6 +51,6 @@ t_map_info	map_info;//contains info on the current map.
 int			fd;
 char		*file_name;
 char		**map_arr;
-s_square	largest_solution;
+t_square	largest_solution;
 
 #endif
