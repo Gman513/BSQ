@@ -12,11 +12,6 @@
 
 #include "bsq.h"
 
-int			ft_read_map(void);
-void		ft_solve_map(void);
-void		ft_readstdi(void);
-void		ft_display_map(int start, int size,int length);
-
 int 		main(int argc, char **argv)
 {
 	int     k;
@@ -38,18 +33,18 @@ int 		main(int argc, char **argv)
 int			ft_read_map(void)
 {
 
-	fd = open(file_name, O_RDONLY)
+	fd = open(file_name, O_RDONLY);
 	if (fd != -1)
 		return (1);
 	else
 		return (0);
 }
 
-void		ft_solve_map(int fd)
+void		ft_solve_map(void)
 {
 	if (!(ft_read_map()))
 		write(1, "map error\n", 10);
-	else if (!(ft_read_map_info) || !(ft_read_line_len) || !(ft_set_array))
+	else if (!(ft_read_map_info()) || !(ft_read_line_len()) || (ft_set_array()))
 		write(1, "map error\n", 10);
 	else if (!(ft_array_solution()))
 		write(1, "map error\n", 10);
@@ -96,7 +91,7 @@ void		ft_readstdi(void);
 	}
 }
 
-void		ft_display_map(int start, int size, int length)
+void		ft_display_map(void)
 {
 	int		position;
 	int		line;
