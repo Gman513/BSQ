@@ -92,12 +92,13 @@ int	ft_set_array(void)
 		k++;
 	}
 	map_arr = malloc(sizeof(arr_col));
+	map_arr = arr(col);
 	free arr_row;
 	free arr_col;
 	return (1);
 }
 
-int	array_solution(void);
+int	ft_array_solution(void);
 {
 	unsigned int	k;
 	unsigned int	l;
@@ -106,11 +107,6 @@ int	array_solution(void);
 
 	k = 0;
 	l = 0;
-	if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
-	{
-		write(1, "map error\n", 10);
-		return (0);
-	}
 	while (map_arr[k] && (k - largest.size) < map_info.size)
 	{
 		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
