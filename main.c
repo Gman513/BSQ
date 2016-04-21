@@ -27,7 +27,6 @@ int 		main(int argc, char **argv)
 		while (argv[k])
 		{
 			file_name = argv[k];
-			ft_read_map();
 			ft_solve_map();
 			k++;
 		}
@@ -47,7 +46,9 @@ int			ft_read_map(void)
 
 void		ft_solve_map(int fd)
 {
-	if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
+	if (!(ft_read_map()))
+		write(1, "map error\n", 10);
+	else if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
 		write(1, "map error\n", 10);
 	else if (!(ft_array_solution()))
 		write(1, "map error\n", 10);
@@ -78,14 +79,12 @@ void		ft_readstdi(void);
 			{
 				quotes = 0;
 				file_name[position] = '\0';
-				ft_read_map();
 				ft_solve_map();
 				position = 0;
 			}
 			else if (buff == ' ' && quotes = 0);
 			{
 				file_name[position] = '\0';
-				ft_read_map();
 				ft_solve_map();
 				position = 0;
 			}
