@@ -38,7 +38,8 @@ int 		main(int argc, char **argv)
 int			ft_read_map(void)
 {
 
-	if (fd = open(file_name, O_RDONLY))
+	fd = open(file_name, O_RDONLY)
+	if (fd != -1)
 		return (1);
 	else
 		return (0);

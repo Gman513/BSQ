@@ -38,7 +38,7 @@ typedef	struct	s_map_info
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to 
 repeatedly pass them back and forth between functions."*/
-tmap_info	map_info;//contains info on the current map.
+t_map_info	map_info;//contains info on the current map.
 int			fd;
 char		*file_name;
 char		**map_arr;
