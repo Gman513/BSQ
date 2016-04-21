@@ -48,7 +48,7 @@ void		ft_solve_map(int fd)
 {
 	if (!(ft_read_map()))
 		write(1, "map error\n", 10);
-	else if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
+	else if (!(ft_read_map_info) || !(ft_read_line_len) || !(ft_set_array))
 		write(1, "map error\n", 10);
 	else if (!(ft_array_solution()))
 		write(1, "map error\n", 10);
