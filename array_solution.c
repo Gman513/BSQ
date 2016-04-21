@@ -10,7 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-include "bsq.h"
+#include "bsq.h"
+
+int ft_read_line_len(void);
+int	ft_read_map_info(void);
+int	ft_set_array(void);
+int	ft_array_solution(void);
 
 int ft_read_line_len(void)
 {
@@ -32,7 +37,6 @@ int ft_read_line_len(void)
 	return (1);	
 }
 
-//these functions assume that map_info variables havr been initiated before they are run.
 int	ft_read_map_info(void) //need to write a sub function to reduce the number of lines, or create a loop...
 {
 	char	buff;
@@ -41,7 +45,7 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 		return (0);
 	while (buff != '\n' && buff >= '0' && buff <= '9')
 	{
-		map_info.size = (map_info.size)*10 + (buff - '0');
+		map_info.map_lines = (map_info.map_lines)*10 + (buff - '0');
 		if (!(read(fd, &buff, 1)))
 			return (0);
 	}
@@ -63,8 +67,6 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 
 int	ft_set_array(void)
 {
-	//This function assumes that the file pointer is already set to the starting point of the map.
-	//This function also makes use of global variables which store information regarding the map's setup.
 	char			buff;
 	char			*arr_row;
 	char			**arr_col;
@@ -76,13 +78,18 @@ int	ft_set_array(void)
 	if (map_info.line_len == 0 || buff != '\n')
 		return (0);
 	arr_row = malloc(sizeof(char) * map_info.line_len);
-	arr_col = malloc(sizeof(arr_row) * map_info.size);
-	while(read(fd, &buff, 1) && k <= map_info.size)
+	while (k <= map_info.map_lines)
+	{
+		arr_col[k] = malloc(sizeof(arr_row));
+		k++;
+	}
+	k = 0;
+	while(read(fd, &buff, 1) && k <= map_info.map_lines)
 	{
 		if (buff != (map_info.empty || map_info.obstacle || '\n'))
 			return (0);
 		if (buff != '\n')
-			array_col[k][l] = buff;
+			arr_col[k][l] = buff;
 		else
 			if (l != map_info.line_len)
 				return (0);
@@ -92,13 +99,13 @@ int	ft_set_array(void)
 		k++;
 	}
 	map_arr = malloc(sizeof(arr_col));
-	map_arr = arr(col);
-	free arr_row;
-	free arr_col;
+	map_arr = arr_col;
+	free(arr_row);
+	free(arr_col);
 	return (1);
 }
 
-int	ft_array_solution(void);
+int	ft_array_solution(void)
 {
 	unsigned int	k;
 	unsigned int	l;
@@ -107,7 +114,7 @@ int	ft_array_solution(void);
 
 	k = 0;
 	l = 0;
-	while (map_arr[k] && (k - largest.size) < map_info.size)
+	while (map_arr[k] && (k - largest.size) < map_info.map_map_lines)
 	{
 		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
 		{
