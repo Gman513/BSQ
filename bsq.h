@@ -19,6 +19,11 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+int			ft_read_map(void);
+void		ft_solve_map(void);
+void		ft_readstdi(void);
+void		ft_display_map(int start, int size,int length);
+
 typedef struct	s_square
 {
 	unsigned int	x;
