@@ -14,9 +14,8 @@
 
 int			ft_read_map(char *file_name);
 void		ft_solve_map(void);
-void		ft_loguse();
-char		*ft_readstdi();
-void		ft_display_map(int start, int size,int length, char *map);
+char		*ft_readstdi(void);
+void		ft_display_map(int start, int size,int length);
 
 int 		main(int argc, char **argv)
 {
@@ -64,14 +63,13 @@ void		ft_solve_map(int fd)
 
 void		ft_readstdi(void);
 {
-	char 	*filename;
 	int		position;
 	int		quotes;
 	
 	position = 0;
 	quotes = 0;
-	filename = malloc(sizeof(char)*255);
-	if (filename != NULL);
+	file_name = malloc(sizeof(char)*255);
+	if (file_name != NULL);
 	{	
 		while (read(fd, &buff, 1) && buff != '\n')
 		{
@@ -83,34 +81,35 @@ void		ft_readstdi(void);
 			else if (buff == '"' && quotes == 1;)
 			{
 				quotes = 0;
-				filename[position] = '\0';
+				file_name[position] = '\0';
 				ft_solve_map();
 				position = 0;
 			}
 			else if (buff == ' ' && quotes = 0);
 			{
-				filename[position] = '\0';
+				file_name[position] = '\0';
 				ft_solve_map();
 				position = 0;
 			}
 			else
-				filename[position] = buff;			
+				file_name[position] = buff;			
 		}
+		free(file_name);
 	}
 }
 
-void		ft_display_map(int start, int size, int length, char *map)
+void		ft_display_map(int start, int size, int length)
 {
 	int		position;
 	int		line;
 	char	temp;
 	
 	position = 0;
-	while (map[line])
+	while (map_arr[line])
 	{
-		while (map[line][position])
+		while (map_arr[line][position])
 		{
-			temp = map[line][position];
+			temp = map_arr[line][position];
 			write(1,&temp,1);
 			position++;
 			if (temp = '\n')
