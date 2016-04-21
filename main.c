@@ -12,7 +12,7 @@
 
 #include "bsq.h"
 
-int			ft_read_map(char *file_name);
+int			ft_read_map(void);
 void		ft_solve_map(void);
 char		*ft_readstdi(void);
 void		ft_display_map(int start, int size,int length);
@@ -21,26 +21,22 @@ int 		main(int argc, char **argv)
 {
 	int     k;
 
-//log usage function needs to be added
 	k = 1;
 	if (argc > k)
 	{
 		while (argv[k])
 		{
-			ft_read_map(argv[k]);
-			ft_solve_map;
+			file_name = argv[k];
+			ft_read_map();
+			ft_solve_map();
 			k++;
 		}
 	}
 	else
-	{
-		//read in map from the standard input
-		fd = 0;
-		ft_solve_map;//need a function to handle if multiple filenames are used.
-	}
+		ft_readstdi();
 }
 
-int			ft_read_map(char *file_name)
+int			ft_read_map(void)
 {
 
 	if (fd = open(file_name, O_RDONLY))
@@ -82,12 +78,14 @@ void		ft_readstdi(void);
 			{
 				quotes = 0;
 				file_name[position] = '\0';
+				ft_read_map();
 				ft_solve_map();
 				position = 0;
 			}
 			else if (buff == ' ' && quotes = 0);
 			{
 				file_name[position] = '\0';
+				ft_read_map();
 				ft_solve_map();
 				position = 0;
 			}
