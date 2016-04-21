@@ -52,15 +52,14 @@ int			ft_read_map(char *file_name)
 
 void		ft_solve_map(int fd)
 {
-	if (fd == -1) || !(ft_testmap(fd, ft_map_description(fd)))//need to reset the file pointer possition after this call
+	if (!(ft_read_map_info) || !(ft_set_array) || !(ft_read_line_len))
+		write(1, "map error\n", 10);
+	else if (!(ft_array_solution()))
 		write(1, "map error\n", 10);
 	else
-	{
-		ft_display_map(ft_scan_map_reduction(fd));
-		//ft_display_map(ft_scan_map_expansion(fd));
-	}
-	if (fd > 1)
-		close(fd);
+		ft_display_map();
+	close(fd);
+	free(map_arr);
 }
 
 void		ft_readstdi(void);
@@ -85,13 +84,13 @@ void		ft_readstdi(void);
 			{
 				quotes = 0;
 				filename[position] = '\0';
-				//run the function here
+				ft_solve_map();
 				position = 0;
 			}
 			else if (buff == ' ' && quotes = 0);
 			{
 				filename[position] = '\0';
-				//run the function here
+				ft_solve_map();
 				position = 0;
 			}
 			else
