@@ -14,7 +14,7 @@
 
 int			ft_read_map(void);
 void		ft_solve_map(void);
-char		*ft_readstdi(void);
+void		ft_readstdi(void);
 void		ft_display_map(int start, int size,int length);
 
 int 		main(int argc, char **argv)
