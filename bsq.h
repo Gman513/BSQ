@@ -26,6 +26,7 @@ void		ft_display_map(void);
 int			ft_read_map_info(void);
 int			ft_read_line_len(void);
 int			ft_set_array(void);
+int			ft_array_solution(void);
 
 typedef struct	s_square
 {
