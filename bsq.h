@@ -45,7 +45,7 @@ typedef	struct	s_map_info
 }				t_map_info;
 
 /*"The following global variables are accessed multiple times throughout the 
-programs functions, making it an unnecessary use of cpu cycles and memory to 
+programs functions, making it an unnecessary use of cpu cycles and memory to ss
 repeatedly pass them back and forth between functions."*/
 t_map_info	map_info;//contains info on the current map.
 int			fd;

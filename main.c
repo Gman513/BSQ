@@ -68,29 +68,32 @@ void		ft_readstdi(void)
 	quotes = 0;
 	file_name = malloc(sizeof(char)*255);
 	if (file_name != NULL)
-	{	
-		while (read(fd, &buff, 1) && buff != '\n')
+	{
+		while (buff != '\n' && read(0, &buff, 1))
 		{
 			if (buff == '"' && quotes == 0)
 			{
 				position++;
 				quotes = 1;
 			}
-			else if (buff == '"' && quotes == 1)
+			else if (buff == '"' && quotes == 1 && position > 0)
 			{
 				quotes = 0;
 				file_name[position] = '\0';
 				ft_solve_map();
 				position = 0;
 			}
-			else if (buff == ' ' && quotes == 0)
+			else if (((buff == ' ' && quotes == 0) || buff == '\n') && position > 0)
 			{
 				file_name[position] = '\0';
 				ft_solve_map();
 				position = 0;
 			}
 			else
-				file_name[position] = buff;			
+			{
+				file_name[position] = buff;
+				position++;
+			}			
 		}
 		free(file_name);
 	}
