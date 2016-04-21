@@ -27,7 +27,10 @@ int 		main(int argc, char **argv)
 		}
 	}
 	else
+	{
 		ft_readstdi();
+		return(0);
+	}
 }
 
 int			ft_read_map(void)
