@@ -68,7 +68,7 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 int	ft_set_array(void)
 {
 	char			buff;
-	char			*arr_row;
+	//char			*arr_row;
 	char			**arr_col;
 	unsigned int	k;
 	unsigned int	l;
@@ -77,10 +77,10 @@ int	ft_set_array(void)
 	l = 0;
 	if (map_info.line_len == 0 || buff != '\n')
 		return (0);
-	arr_row = malloc(sizeof(char) * map_info.line_len);
+	//arr_row = malloc(sizeof(char) * map_info.line_len);
 	while (k <= map_info.map_lines)
 	{
-		arr_col[k] = malloc(sizeof(arr_row));
+		arr_col[k] = (char *)malloc(sizeof(char)* map_info.line_len);//malloc(sizeof(arr_row))
 		k++;
 	}
 	k = 0;
@@ -100,7 +100,7 @@ int	ft_set_array(void)
 	}
 	map_arr = malloc(sizeof(arr_col));
 	map_arr = arr_col;
-	free(arr_row);
+	//free(arr_row);
 	free(arr_col);
 	return (1);
 }
@@ -109,18 +109,18 @@ int	ft_array_solution(void)
 {
 	unsigned int	k;
 	unsigned int	l;
-	tsquare			current;
-	tsquare			largest;
+	t_square		current;
+	t_square		largest;
 
 	k = 0;
 	l = 0;
-	while (map_arr[k] && (k - largest.size) < map_info.map_map_lines)
+	while (map_arr[k] && (k - largest.size) < map_info.map_lines)
 	{
 		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
 		{
 			current.y = 0;
 			current.size = 0;
-			while (map_arr[k][l + current] == map_info.empty)
+			while (map_arr[k][l + current.size] == map_info.empty)
 				current.size++;
 			while(current.size > largest.size)
 			{

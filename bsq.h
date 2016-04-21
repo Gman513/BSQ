@@ -50,6 +50,6 @@ t_map_info	map_info;//contains info on the current map.
 int			fd;
 char		*file_name;
 char		**map_arr;
-s_square	largest_solution;
+t_square	largest_solution;
 
 #endif
