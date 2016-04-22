@@ -12,6 +12,8 @@
 
 #include "bsq.h"
 
+#include <stdio.h> //DEBUG CODE
+
 int ft_read_line_len(void)
 {
 	unsigned int	k;
@@ -26,6 +28,7 @@ int ft_read_line_len(void)
 	if (buff != '\n')
 		return (0);
 	map_info.line_len = k;
+		printf("ft_read_line_len map_info.line_len = %i\n", map_info.line_len); //DEBUG CODE
 	if (close(fd) == 1 || !(ft_read_map()))
 		return (0);
 	while (read(fd, &buff, 1) && buff != '\n');
@@ -41,6 +44,7 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	while (buff != '\n' && buff >= '0' && buff <= '9')
 	{
 		map_info.map_lines = (map_info.map_lines)*10 + (buff - '0');
+			printf("ft_read_map_info map_info.map_lines = %i\n", map_info.map_lines); //DEBUG CODE
 		if (!(read(fd, &buff, 1)))
 			return (0);
 	}
@@ -79,7 +83,10 @@ int	ft_set_array(void)
 		if (buff != (map_info.empty || map_info.obstacle || '\n'))
 			return (0);
 		if (buff != '\n')
+		{ // Debug
 			arr_col[k][l] = buff;
+				printf("ft_set_array arr_col[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
+		} //Debug
 		else
 			if (l != map_info.line_len)
 				return (0);

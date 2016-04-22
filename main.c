@@ -12,6 +12,8 @@
 
 #include "bsq.h"
 
+#include <stdio.h> //DEBUG CODE
+
 int 		main(int argc, char **argv)
 {
 	int     k;
@@ -38,6 +40,7 @@ int			ft_read_map(void)
 {
 
 	fd = open(file_name, O_RDONLY);
+	printf("ft_read_map fd = %i\n", fd); //DEBUG CODE
 	if (fd != -1)
 		return (1);
 	else
@@ -86,12 +89,14 @@ void		ft_readstdi(void)
 			{
 				quotes = 0;
 				file_name[position] = '\0';
+					printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
 				ft_solve_map();
 				position = 0;
 			}
 			else if (((buff == ' ' && quotes == 0) || buff == '\n') && position > 0)
 			{
 				file_name[position] = '\0';
+					printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
 				ft_solve_map();
 				position = 0;
 			}
