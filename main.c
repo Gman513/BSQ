@@ -47,11 +47,17 @@ int			ft_read_map(void)
 void		ft_solve_map(void)
 {
 	if (!(ft_read_map()))
-		write(1, "map error\n", 10);
-	else if (!(ft_read_map_info()) || !(ft_read_line_len()) || (ft_set_array()))
-		write(1, "map error\n", 10);
+		write(1, "map error1\n", 11); //EDITED FOR DEBUG
+	//else if (!(ft_read_map_info()) || !(ft_read_line_len()) || !(ft_set_array()))
+		//write(1, "map error2\n", 11); //EDITED FOR DEBUG
+	else if (!(ft_read_map_info()))
+		write(1, "map error2\n", 11); //EDITED FOR DEBUG
+	else if (!(ft_read_line_len()))
+		write(1, "map error3\n", 11); //EDITED FOR DEBUG
+	else if (!(ft_set_array()))
+		write(1, "map error4\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_array_solution()))
-		write(1, "map error\n", 10);
+		write(1, "map error5\n", 11); //EDITED FOR DEBUG
 	else
 		ft_display_map();
 	close(fd);

@@ -12,11 +12,6 @@
 
 #include "bsq.h"
 
-int ft_read_line_len(void);
-int	ft_read_map_info(void);
-int	ft_set_array(void);
-int	ft_array_solution(void);
-
 int ft_read_line_len(void)
 {
 	unsigned int	k;
@@ -24,14 +19,14 @@ int ft_read_line_len(void)
 	
 	k = 0;
 	while (read(fd, &buff, 1) && buff != '\n');
-	if (buff != '\n')
-		return (0);
+		if (buff != '\n')
+			return (0);
 	while (read(fd, &buff, 1) && buff != '\n')
 		k++;
 	if (buff != '\n')
 		return (0);
 	map_info.line_len = k;
-	if (!(close(fd)) || !(ft_read_map()))
+	if (close(fd) == 1 || !(ft_read_map()))
 		return (0);
 	while (read(fd, &buff, 1) && buff != '\n');
 	return (1);	
