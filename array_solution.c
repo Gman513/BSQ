@@ -84,9 +84,12 @@ int	ft_set_array(void)
 			if (l != map_info.line_len)
 				return (0);
 			else
+			{
 				l = 0 - 1;
+				k++;
+			}
 		l++;
-		k++;
+
 	}
 	map_arr = malloc(sizeof(arr_col));
 	map_arr = arr_col;
