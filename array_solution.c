@@ -143,7 +143,7 @@ int	ft_array_solution(void)
 
 int ft_manage_array (int procedure)
 {
-	int k;
+	unsigned int k;
 
 	k = 0;
 	map_arr = malloc(sizeof(char*) * map_info.map_lines);
@@ -151,7 +151,7 @@ int ft_manage_array (int procedure)
 		return (0);
 	while (k <= map_info.map_lines)
 	{
-		if (procedure = 1)
+		if (procedure == 1)
 		{
 			map_arr[k] = malloc(sizeof(char) * map_info.line_len);
 			if (map_arr[k] == NULL)
