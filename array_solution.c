@@ -146,12 +146,10 @@ int ft_manage_array (int procedure)
 	int k;
 
 	k = 0;
-	if (procedure = 0)
-		k = map_info.map_lines;
 	map_arr = malloc(sizeof(char*) * map_info.map_lines);
 	if (map_arr == NULL)
 		return (0);
-	while (k != -1 || k != map_info.map_lines + 1)
+	while (k <= map_info.map_lines)
 	{
 		if (procedure = 1)
 		{
@@ -163,7 +161,7 @@ int ft_manage_array (int procedure)
 		else
 		{
 			free(map_arr[k]);
-			k--;
+			k++;
 		}
 	}
 	return (1);
