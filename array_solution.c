@@ -140,3 +140,31 @@ int	ft_array_solution(void)
 	largest_solution = largest;
 	return (1);
 }
+
+int ft_manage_array (int procedure)
+{
+	int k;
+
+	k = 0;
+	if (procedure = 0)
+		k = map_info.map_lines;
+	map_arr = malloc(sizeof(char*) * map_info.map_lines);
+	if (map_arr == NULL)
+		return (0);
+	while (k != -1 || k != map_info.map_lines + 1)
+	{
+		if (procedure = 1)
+		{
+			map_arr[k] = malloc(sizeof(char) * map_info.line_len);
+			if (map_arr[k] == NULL)
+				return (0);
+			k++;
+		}
+		else
+		{
+			free(map_arr[k]);
+			k--;
+		}
+	}
+	return (1);
+}
