@@ -126,12 +126,16 @@ int	ft_array_solution(void)
 			{
 				current.y++;
 				current.x = 0;
-				while (map_arr[k + current.y][k + current.x] == map_info.empty && current.x <= current.size)
+				while (map_arr[k + current.y][k + current.x] == map_info.empty && current.x < current.size)
+				{//debug
 					current.x++;
+					printf("checking++\n"); //DEBUG CODE
+				}//debug
 				if (current.x < current.size)
 					current.size = current.x;
 				if (current.y >= current.size && current.size > largest.size)
 					largest = current;
+				printf("Testing size\n"); //DEBUG CODE
 			}
 			l++;
 		}
