@@ -153,12 +153,8 @@ int ft_manage_array (int procedure)
 	{
 		if (procedure == 1)
 		{
-<<<<<<< HEAD
-			map_arr[k] = malloc(sizeof(char) * (map_info.line_len));
-=======
 			map_arr[k] = malloc(sizeof(char) * map_info.line_len);
 				printf("ft_manage_array map_arr[%i] malloced [%i] places succesfully\n", k, map_info.line_len); //DEBUG CODE
->>>>>>> f48f931e59926746ba2fdb1d1c9b5608cedea6de
 			if (map_arr[k] == NULL)
 				return (0);
 			k++;
