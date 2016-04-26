@@ -139,7 +139,11 @@ int ft_manage_array (int procedure)
 	unsigned int k;
 
 	k = 0;
-	map_arr = malloc(sizeof(char*) * map_info.map_lines);
+	if (procedure == 1)
+	{ // DEBUG
+		map_arr = malloc(sizeof(char*) * map_info.map_lines);
+		printf("ft_manage_array map_arr malloced [%i] places succesfully\n", map_info.map_lines); //DEBUG CODE
+	} //DEBUG
 	if (map_arr == NULL)
 		return (0);
 	while (k <= map_info.map_lines)
@@ -147,15 +151,18 @@ int ft_manage_array (int procedure)
 		if (procedure == 1)
 		{
 			map_arr[k] = malloc(sizeof(char) * map_info.line_len);
+				printf("ft_manage_array map_arr[%i] malloced [%i] places succesfully\n", k, map_info.line_len); //DEBUG CODE
 			if (map_arr[k] == NULL)
 				return (0);
 			k++;
 		}
 		else
 		{
+				printf("ft_manage_array attempting to free map_arr[%i]\n", k); //DEBUG CODE
 			free(map_arr[k]);
 			k++;
 		}
 	}
+	// INSERT CODE TO FREE PRIMARY ARRAY
 	return (1);
 }
