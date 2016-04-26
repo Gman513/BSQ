@@ -30,15 +30,15 @@ int			ft_manage_array (int procedure);
 
 typedef struct	s_square
 {
-	unsigned int	x;
-	unsigned int	y;
-	unsigned int	size;
+	int	x;
+	int	y;
+	int	size;
 }				t_square;
 
 typedef	struct	s_map_info
 {
-	unsigned int	map_lines;
-	unsigned int	line_len;
+	int	map_lines;
+	int	line_len;
 	char			empty;
 	char			obstacle;
 	char			full;

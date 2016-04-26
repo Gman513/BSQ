@@ -16,7 +16,7 @@
 
 int ft_read_line_len(void)
 {
-	unsigned int	k;
+	int	k;
 	char			buff;
 	
 	k = 0;
@@ -67,8 +67,8 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 int	ft_set_array(void)
 {
 	char			buff;
-	unsigned int	k;
-	unsigned int	l;
+	int	k;
+	int	l;
 	
 	k = 0;
 	l = 0;
@@ -99,8 +99,8 @@ int	ft_set_array(void)
 
 int	ft_array_solution(void)
 {
-	unsigned int	k;
-	unsigned int	l;
+	int	k;
+	int	l;
 	t_square		current;
 	t_square		largest;
 
@@ -136,7 +136,7 @@ int	ft_array_solution(void)
 
 int ft_manage_array (int procedure)
 {
-	unsigned int k;
+	int k;
 
 	k = 0;
 	if (procedure == 1)
