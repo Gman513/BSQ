@@ -64,7 +64,7 @@ void		ft_solve_map(void)
 	else
 		ft_display_map();
 	close(fd);
-	free(map_arr);
+	ft_manage_array(0);
 }
 
 void		ft_readstdi(void)

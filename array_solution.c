@@ -67,8 +67,6 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 int	ft_set_array(void)
 {
 	char			buff;
-	//char			*arr_row;
-	char			**arr_col;
 	unsigned int	k;
 	unsigned int	l;
 	
@@ -76,16 +74,15 @@ int	ft_set_array(void)
 	l = 0;
 	if (map_info.line_len == 0)
 		return (0);
-	//arr_row = malloc(sizeof(char) * map_info.line_len);
-	arr_col = malloc(sizeof(char) * map_info.line_len * map_info.map_lines);//malloc(sizeof(arr_row))
+	ft_manage_array(1);
 	while(read(fd, &buff, 1) && k <= map_info.map_lines)
 	{
 		if (buff != map_info.empty && buff != map_info.obstacle && buff != '\n')
 			return (0);
 		if (buff != '\n')
 		{ // Debug
-			arr_col[k][l] = buff;
-				printf("ft_set_array arr_col[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
+			map_arr[k][l] = buff;
+				printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
 		} //Debug
 		else
 			if (l != map_info.line_len)
@@ -97,10 +94,6 @@ int	ft_set_array(void)
 			}
 		l++;
 	}
-	map_arr = malloc(sizeof(arr_col));
-	map_arr = arr_col;
-	//free(arr_row);
-	free(arr_col);
 	return (1);
 }
 
