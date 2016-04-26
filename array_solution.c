@@ -83,12 +83,12 @@ int	ft_set_array(void)
 		map_arr[k][l] = buff;
 		if (l != (map_info.line_len) && buff == '\n')
 		{//debug
-			printf("running away");//debug code
+			printf("running away\n");//debug code
 			return (0);
 		}//debug
 		else if (l == (map_info.line_len) && buff == '\n')
 		{
-			printf("set next line");//debug code
+			printf("set next line\n");//debug code
 			map_arr[k][l] = buff;
 			l = 0 - 1;
 			k++;
@@ -109,14 +109,19 @@ int	ft_array_solution(void)
 
 	k = 0;
 	l = 0;
+			printf("ft_array_solution called\n"); //DEBUG CODE
 	while (map_arr[k] && (k - largest.size) < map_info.map_lines)
 	{
 		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
 		{
 			current.y = 0;
 			current.size = 0;
+				printf("current.y = [%i] | current.size = [%i]\n", current.y, current.size); //DEBUG CODE
 			while (map_arr[k][l + current.size] == map_info.empty)
+			{//DEBUG
 				current.size++;
+					printf("current.size++\n"); //DEBUG CODE
+			}//DEBUG
 			while(current.size > largest.size)
 			{
 				current.y++;
