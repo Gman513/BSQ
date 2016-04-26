@@ -75,25 +75,28 @@ int	ft_set_array(void)
 	if (map_info.line_len == 0)
 		return (0);
 	ft_manage_array(1);
-	while(read(fd, &buff, 1) && k <= map_info.map_lines)
+	while(read(fd, &buff, 1) == 1 && k <= map_info.map_lines)
 	{
+		printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
 		if (buff != map_info.empty && buff != map_info.obstacle && buff != '\n')
 			return (0);
-		if (buff != '\n')
-		{ // Debug
+		map_arr[k][l] = buff;
+		if (l != (map_info.line_len) && buff == '\n')
+		{//debug
+			printf("running away");//debug code
+			return (0);
+		}//debug
+		else if (l == (map_info.line_len) && buff == '\n')
+		{
+			printf("set next line");//debug code
 			map_arr[k][l] = buff;
-				printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
-		} //Debug
-		else
-			if (l != map_info.line_len)
-				return (0);
-			else
-			{
-				l = 0 - 1;
-				k++;
-			}
+			l = 0 - 1;
+			k++;
+		}
+		//printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
 		l++;
 	}
+	printf("exit loop\n");//debug code
 	return (1);
 }
 
@@ -146,7 +149,7 @@ int ft_manage_array (int procedure)
 	{
 		if (procedure == 1)
 		{
-			map_arr[k] = malloc(sizeof(char) * map_info.line_len);
+			map_arr[k] = malloc(sizeof(char) * (map_info.line_len));
 			if (map_arr[k] == NULL)
 				return (0);
 			k++;
