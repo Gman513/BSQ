@@ -50,17 +50,17 @@ int			ft_read_map(void)
 void		ft_solve_map(void)
 {
 	if (!(ft_read_map()))
-		write(1, "map error1\n", 11); //EDITED FOR DEBUG
+		write(1, "map error 1\n", 11); //EDITED FOR DEBUG
 	//else if (!(ft_read_map_info()) || !(ft_read_line_len()) || !(ft_set_array()))
-		//write(1, "map error2\n", 11); //EDITED FOR DEBUG
+		//write(1, "map error 2\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_read_map_info()))
-		write(1, "map error2\n", 11); //EDITED FOR DEBUG
+		write(1, "map error 2\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_read_line_len()))
-		write(1, "map error3\n", 11); //EDITED FOR DEBUG
+		write(1, "map error 3\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_set_array()))
-		write(1, "map error4\n", 11); //EDITED FOR DEBUG
+		write(1, "map error 4\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_array_solution()))
-		write(1, "map error5\n", 11); //EDITED FOR DEBUG
+		write(1, "map error 5\n", 11); //EDITED FOR DEBUG
 	else
 		ft_display_map();
 	close(fd);
@@ -117,9 +117,10 @@ void		ft_display_map(void)
 	char	temp;
 	
 	position = 0;
-	while (map_arr[line])
-	{
-		while (map_arr[line][position])
+	line = 0;
+	//while (line != map_info.map_lines - 1)
+	//{
+		while (line != map_info.map_lines)
 		{
 			temp = map_arr[line][position];
 			write(1,&temp,1);
@@ -130,6 +131,6 @@ void		ft_display_map(void)
 				position = 0;
 			}
 		}
-		
-	}
+	//}
+						printf("Reaches end of ft_display_map\n"); //DEBUG CODE
 }

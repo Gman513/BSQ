@@ -18,39 +18,39 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-int			ft_read_map(void);
-void		ft_solve_map(void);
-void		ft_readstdi(void);
-void		ft_display_map(void);
-int			ft_read_map_info(void);
-int			ft_read_line_len(void);
-int			ft_set_array(void);
-int			ft_array_solution(void);
-int			ft_manage_array (int procedure);
+int					ft_read_map(void);
+void				ft_solve_map(void);
+void				ft_readstdi(void);
+void				ft_display_map(void);
+int					ft_read_map_info(void);
+int					ft_read_line_len(void);
+int					ft_set_array(void);
+int					ft_array_solution(void);
+int					ft_manage_array (int procedure);
 
-typedef struct	s_square
+typedef struct		s_square
 {
-	int	x;
-	int	y;
-	int	size;
-}				t_square;
+	int				x;
+	int				y;
+	int				size;
+}					t_square;
 
-typedef	struct	s_map_info
+typedef	struct		s_map_info
 {
-	int	map_lines;
-	int	line_len;
+	int				map_lines;
+	int				line_len;
 	char			empty;
 	char			obstacle;
 	char			full;
-}				t_map_info;
+}					t_map_info;
 
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to ss
 repeatedly pass them back and forth between functions."*/
-t_map_info	map_info;//contains info on the current map.
-int			fd;
-char		*file_name;
-char		**map_arr;
-t_square	largest_solution;
+t_map_info			map_info;//contains info on the current map.
+int					fd;
+char				*file_name;
+char				**map_arr;
+t_square			largest_solution;
 
 #endif
