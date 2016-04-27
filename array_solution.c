@@ -122,7 +122,7 @@ int	ft_array_solution(void)
 				current.size++;
 					printf("\tCurrent.size++ = [%i]\n", current.size); //DEBUG CODE
 			}//DEBUG
-			while(current.size > largest.size)
+			while(current.size > largest.size && (l + current.y) < map_info.map_lines)
 			{
 				current.y++;
 				current.x = 0;
