@@ -133,12 +133,13 @@ int	ft_array_solution(void)
 				}//debug
 				if (current.x < current.size)
 					current.size = current.x;
-				if (current.y >= current.size && current.size > largest.size)
-				{//DEBUG
-					largest = current;
-						printf("\t\t\t[t_square largest] = [t_square current]\n"); //DEBUG CODE
-				}//DEBUG
-				printf("Testing size\n"); //DEBUG CODE
+				if (current.y > largest.size && current.y > largest.size)
+				{
+					largest.x = k;
+					largest.y = l;
+					largest.size = current.y;
+				}
+				printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
 			}
 			l++;
 		}
