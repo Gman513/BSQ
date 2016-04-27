@@ -131,13 +131,15 @@ int	ft_array_solution(void)
 					current.x++;
 					printf("Current.x++ = [%i]\n", current.x); //DEBUG CODE
 				}//debug
-				if (current.x < current.size)
+				if (current.x + 1 < current.size)
 					current.size = current.x + 1;
-				if (current.y > largest.size && current.size > largest.size)
+				if (current.y >= largest.size && current.size > largest.size)//debug edit
 				{
-					largest.x = k;
-					largest.y = l;
-					largest.size = current.y;
+					largest.x = l;
+					largest.y = k;
+					largest.size = current.y + 1;
+					printf("\t\tlargest.x = %i\n", l);
+					printf("\t\tlargest.y = %i\n", k);
 				}
 				printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
 				printf("\t\t\t\t\t\t\tCurrent.size: [%i]\n", current.size); //DEBUG CODE
@@ -199,13 +201,13 @@ int	ft_add_solution(void)
 	int		k;
 	int		l;
 	
-	k = 0;
-	while((largest_solution.y + k) < largest_solution.size)
+	k = 0;//((largest_solution.y + k) < largest_solution.size)
+	while(k < largest_solution.size)
 	{
 		l = 0;
-		while((largest_solution.x + l) < largest_solution.size)
+		while(l < largest_solution.size)
 		{
-			map_arr[k][l] = map_info.full;
+			map_arr[k + largest_solution.y][l + largest_solution.x] = map_info.full;
 			l++;
 		}
 		k++;
