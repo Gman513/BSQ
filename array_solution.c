@@ -116,11 +116,11 @@ int	ft_array_solution(void)
 		{
 			current.y = 0;
 			current.size = 0;
-				printf("current.y = [%i] | current.size = [%i]\n", current.y, current.size); //DEBUG CODE
+				printf("Resetting current.y and current.size\n"); //DEBUG CODE
 			while (map_arr[k][l + current.size] == map_info.empty)
 			{//DEBUG
 				current.size++;
-					printf("current.size++\n"); //DEBUG CODE
+					printf("\tcurrent.size++ = [%i]\n", current.size); //DEBUG CODE
 			}//DEBUG
 			while(current.size > largest.size)
 			{
@@ -134,7 +134,10 @@ int	ft_array_solution(void)
 				if (current.x < current.size)
 					current.size = current.x;
 				if (current.y >= current.size && current.size > largest.size)
+				{//DEBUG
 					largest = current;
+						printf("\t\t\t[t_square largest] = [t_square current]\n"); //DEBUG CODE
+				}//DEBUG
 				printf("Testing size\n"); //DEBUG CODE
 			}
 			l++;
