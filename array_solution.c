@@ -116,7 +116,7 @@ int	ft_array_solution(void)
 		{
 			current.y = 0;
 			current.size = 0;
-				printf("Resetting current.y and current.size\n"); //DEBUG CODE
+				printf("\nResetting current.y and current.size\n"); //DEBUG CODE
 			while (map_arr[k][l + current.size] == map_info.empty)
 			{//DEBUG
 				current.size++;
