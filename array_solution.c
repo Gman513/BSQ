@@ -126,20 +126,21 @@ int	ft_array_solution(void)
 			{
 				current.y++;
 				current.x = 0;
-				while (map_arr[k + current.y][k + current.x] == map_info.empty && current.x < current.size)
+				while (map_arr[k + current.y][l + current.x] == map_info.empty && current.x < current.size)
 				{//debug
 					current.x++;
-					printf("checking++\n"); //DEBUG CODE
+					printf("current.x++ = [%i]\n", current.x); //DEBUG CODE
 				}//debug
 				if (current.x < current.size)
-					current.size = current.x;
-				if (current.y > largest.size && current.y > largest.size)
+					current.size = current.x + 1;
+				if (current.y > largest.size && current.size > largest.size)
 				{
 					largest.x = k;
 					largest.y = l;
 					largest.size = current.y;
 				}
 				printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
+				printf("\t\t\t\t\t\t\tcurrent.size: [%i]\n", current.size); //DEBUG CODE
 			}
 			l++;
 		}
