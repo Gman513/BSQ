@@ -110,9 +110,9 @@ int	ft_array_solution(void)
 	k = 0;
 	l = 0;
 			printf("ft_array_solution called\n"); //DEBUG CODE
-	while (map_arr[k] && (k - largest.size) < map_info.map_lines)
+	while (map_arr[k] && k < (map_info.map_lines - largest.size))
 	{
-		while (map_arr[k][l]  && (k - largest.size) < map_info.line_len)
+		while (map_arr[k][l]  && l < (map_info.line_len - largest.size))
 		{
 			current.y = 0;
 			current.size = 0;
