@@ -27,6 +27,7 @@ int					ft_read_line_len(void);
 int					ft_set_array(void);
 int					ft_array_solution(void);
 int					ft_manage_array (int procedure);
+int					ft_add_solution(void);
 
 typedef struct		s_square
 {

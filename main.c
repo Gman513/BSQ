@@ -61,7 +61,7 @@ void		ft_solve_map(void)
 		write(1, "map error 4\n", 11); //EDITED FOR DEBUG
 	else if (!(ft_array_solution()))
 		write(1, "map error 5\n", 11); //EDITED FOR DEBUG
-	else
+	else if (ft_add_solution())
 		ft_display_map();
 	close(fd);
 	ft_manage_array(0);

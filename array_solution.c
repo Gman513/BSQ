@@ -193,3 +193,22 @@ int ft_manage_array (int procedure)
 	}//DEBUG
 	return (1);
 }
+
+int	ft_add_solution(void)
+{
+	int		k;
+	int		l;
+	
+	k = 0;
+	while((largest_solution.y + k) < largest_solution.size)
+	{
+		l = 0;
+		while((largest_solution.x + l) < largest_solution.size)
+		{
+			map_arr[k][l] = map_info.full;
+			l++;
+		}
+		k++;
+	}
+	return (1);
+}
