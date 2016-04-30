@@ -78,23 +78,24 @@ int	ft_set_array(void)
 	while(read(fd, &buff, 1) == 1 && k <= map_info.map_lines)
 	{
 		printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
+		map_arr[k][l] = buff;
 		if (buff != map_info.empty && buff != map_info.obstacle && buff != '\n')
 			return (0);
-		map_arr[k][l] = buff;
-		if (l != (map_info.line_len) && buff == '\n')
+		else if (buff == '\n' && l != (map_info.line_len))
 		{//debug
 			printf("running away\n");//debug code
 			return (0);
 		}//debug
-		else if (l == (map_info.line_len) && buff == '\n')
+		else if (buff == '\n' && l == (map_info.line_len))
 		{
 			printf("set next line\n");//debug code
-			map_arr[k][l] = buff;
-			l = 0 - 1;
+			//map_arr[k][l] = buff;
+			l = 0;
 			k++;
 		}
-		//printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
-		l++;
+		else l++;
+		if (l > map_info.line_len)
+			return (0);
 	}
 	printf("exit loop\n");//debug code
 	return (1);
