@@ -20,9 +20,9 @@ int ft_read_line_len(void)
 	char			buff;
 	
 	k = 0;
-	while (read(fd, &buff, 1) && buff != '\n');
-		if (buff != '\n')
-			return (0);
+	read(fd, &buff, 1);
+	if (buff != '\n')
+		return (0);
 	while (read(fd, &buff, 1) && buff != '\n')
 		k++;
 	if (buff != '\n')
