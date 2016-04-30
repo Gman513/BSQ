@@ -41,14 +41,16 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	
 	if (!(read(fd, &buff, 1)))
 		return (0);
-	while (buff != '\n' && buff >= '0' && buff <= '9')
+	if (buff < '0' || buff > '9')
+		return (0);
+	while (buff >= '0' && buff <= '9')
 	{
 		map_info.map_lines = (map_info.map_lines)*10 + (buff - '0');
 			printf("ft_read_map_info map_info.map_lines = %i\n", map_info.map_lines); //DEBUG CODE
 		if (!(read(fd, &buff, 1)))
 			return (0);
 	}
-	if (buff != '\n')
+	if (buff != '\n' && map_info.map_lines != 0)
 		map_info.empty = buff;
 	else return (0);
 	if (!(read(fd, &buff, 1)))
