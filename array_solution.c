@@ -77,7 +77,7 @@ int	ft_set_array(void)
 	if (map_info.line_len == 0)
 		return (0);
 	ft_manage_array(1);
-	while(read(fd, &buff, 1) == 1 && k <= map_info.map_lines)
+	while(read(fd, &buff, 1) == 1 && k < map_info.map_lines)
 	{
 		printf("ft_set_array map_arr[%i][%i] = %c\n", k, l, buff); //DEBUG CODE
 		map_arr[k][l] = buff;
@@ -100,9 +100,9 @@ int	ft_set_array(void)
 			return (0);
 	}
 	printf("exit loop\n");//debug code
-	if (k == map_info.map_lines)
-		return (1);
-	return (0);
+	if (k != map_info.map_lines || (read(fd, &buff, 1)))
+		return (0);
+	return (1);
 }
 
 int	ft_array_solution(void)
