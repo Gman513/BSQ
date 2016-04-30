@@ -98,7 +98,9 @@ int	ft_set_array(void)
 			return (0);
 	}
 	printf("exit loop\n");//debug code
-	return (1);
+	if (k == map_info.map_lines)
+		return (1);
+	return (0);
 }
 
 int	ft_array_solution(void)
