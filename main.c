@@ -112,25 +112,13 @@ void		ft_readstdi(void)
 
 void		ft_display_map(void)
 {
-	int		position;
 	int		line;
-	char	temp;
 	
-	position = 0;
 	line = 0;
-	//while (line != map_info.map_lines - 1)
-	//{
-		while (line != map_info.map_lines)
-		{
-			temp = map_arr[line][position];
-			write(1,&temp,1);
-			position++;
-			if (temp == '\n')
-			{
-				line++;
-				position = 0;
-			}
-		}
-	//}
-						printf("Reaches end of ft_display_map\n"); //DEBUG CODE
+	while (line != map_info.map_lines)
+	{
+		write(1,map_arr[line], map_info.line_len + 1);
+		line++;
+	}
+	printf("Reaches end of ft_display_map\n"); //DEBUG CODE
 }
