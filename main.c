@@ -12,8 +12,6 @@
 
 #include "bsq.h"
 
-t_read_stdi	ft_handle_case(t_read_stdi var);
-
 int 		main(int argc, char **argv)
 {
 	int     k;

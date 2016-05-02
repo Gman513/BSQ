@@ -76,6 +76,9 @@ int					ft_set_var(void);
 t_arr_sol			ft_calc_pos(t_arr_sol var);
 t_std_var			ft_line_state(t_std_var var);
 int					ft_set_arr_proc(int procedure);
+int					ft_read_number(void);
+t_read_stdi			ft_handle_case(t_read_stdi var);
+int					ft_single(void);
 
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to ss

@@ -51,8 +51,28 @@ int	ft_array_solution(void)
 		var.l = 0;
 		var.k++;
 	}
-	largest_solution = var.larg;
+	if (var.larg.size > 1)
+		largest_solution = var.larg;
+	else if (!(ft_single()))
+		return (0);
 	return (1);
+}
+
+int			ft_single(void)
+{
+	int		k;
+	
+	k = 0;
+	while (map_arr[0][k] < map_info.line_len && map_arr[0][k] != map_info.empty)
+		k++;
+	if (map_arr[0][k] == map_info.empty)
+	{
+		largest_solution.x = k;
+		largest_solution.y = 0;
+		largest_solution.size = 1;
+		return (1);
+	}
+	return (0);
 }
 
 t_arr_sol	ft_calc_pos(t_arr_sol var)
