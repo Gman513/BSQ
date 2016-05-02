@@ -14,6 +14,7 @@
 
 t_arr_sol			ft_calc_pos(t_arr_sol var);
 t_set_arr			ft_line_state(t_set_arr var);
+int					ft_set_arr_proc(int procedure);
 
 int ft_read_line_len(void)
 {
@@ -158,15 +159,23 @@ int	ft_array_solution(void)
 	return (1);
 }
 
-int ft_manage_array (int procedure)
+int	ft_set_arr_proc(int procedure)
 {
-	int k;
-
+	int	k;
+	
 	k = 0;
 	if (procedure == 0)
 		k = map_info.map_lines - 1;
 	if (procedure == 1)
 		map_arr = malloc(sizeof(void*) * map_info.map_lines - 1);
+	return (k);
+}
+
+int ft_manage_array (int procedure)
+{
+	int k;
+
+	k = ft_set_arr_proc(procedure);
 	if (map_arr == NULL)
 		return (0);
 	while (k < map_info.map_lines && k > -1)
@@ -194,7 +203,7 @@ int	ft_add_solution(void)
 	int		k;
 	int		l;
 	
-	k = 0;//((largest_solution.y + k) < largest_solution.size)
+	k = 0;
 	while(k < largest_solution.size)
 	{
 		l = 0;
