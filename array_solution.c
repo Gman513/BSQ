@@ -124,11 +124,11 @@ int	ft_array_solution(void)
 					largest.x = l;
 					largest.y = k;
 					largest.size = current.y + 1;
-					printf("\t\tlargest.x = %i\n", l);
-					printf("\t\tlargest.y = %i\n", k);
+					printf("bleh");
+					//printf("\t\tlargest.y = %i\n", k);
 				}
-				printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
-				printf("\t\t\t\t\t\t\tCurrent.size: [%i]\n", current.size); //DEBUG CODE
+				//printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
+				//printf("\t\t\t\t\t\t\tCurrent.size: [%i]\n", current.size); //DEBUG CODE
 			}
 			l++;
 		}
@@ -144,14 +144,14 @@ int ft_manage_array (int procedure)
 	int k;
 
 	k = 0;
-			printf("\nft_manage_array called \nProcedure = [%i]\n", procedure); //DEBUG CODE
-			printf("map_info.map_lines = [%i]\n", map_info.map_lines); //DEBUG CODE
+			//printf("\nft_manage_array called \nProcedure = [%i]\n", procedure); //DEBUG CODE
+			//printf("map_info.map_lines = [%i]\n", map_info.map_lines); //DEBUG CODE
 	if (procedure == 0)
 		k = map_info.map_lines - 1;
 	if (procedure == 1)
 	{ // DEBUG
 		map_arr = malloc(sizeof(void*) * map_info.map_lines - 1);
-		printf("ft_manage_array map_arr malloced [%i] PRIMARY places succesfully\n", map_info.map_lines); //DEBUG CODE
+		//printf("ft_manage_array map_arr malloced [%i] PRIMARY places succesfully\n", map_info.map_lines); //DEBUG CODE
 	} //DEBUG
 	if (map_arr == NULL)
 		return (0);
@@ -160,24 +160,24 @@ int ft_manage_array (int procedure)
 		if (procedure == 1)
 		{
 			map_arr[k] = malloc(sizeof(char) * map_info.line_len + 1);
-				printf("ft_manage_array map_arr[%i] malloced [%i] places succesfully\n", k, map_info.line_len); //DEBUG CODE
+				//printf("ft_manage_array map_arr[%i] malloced [%i] places succesfully\n", k, map_info.line_len); //DEBUG CODE
 			if (map_arr[k] == NULL)
 				return (0);
 			k++;
 		}
 		else
 		{
-				printf("ft_manage_array attempting to free map_arr[%i]\n", k); //DEBUG CODE
+				//printf("ft_manage_array attempting to free map_arr[%i]\n", k); //DEBUG CODE
 			free(map_arr[k]);
-				printf("ft_manage_array succeeded in freeing map_arr[%i]\n", k); //DEBUG CODE
+				//printf("ft_manage_array succeeded in freeing map_arr[%i]\n", k); //DEBUG CODE
 			k--;
 		}
 	}
 	if (procedure == 0)
 	{//DEBUG
-			printf("ft_manage_array attempting to free PRIMARY ARRAY\n"); //DEBUG CODE
+			//printf("ft_manage_array attempting to free PRIMARY ARRAY\n"); //DEBUG CODE
 		free(map_arr);
-			printf("SUCCESS\n"); //DEBUG CODE
+			//printf("SUCCESS\n"); //DEBUG CODE
 	}//DEBUG
 	return (1);
 }
