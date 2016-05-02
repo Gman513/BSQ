@@ -12,6 +12,8 @@
 
 #include "bsq.h"
 
+t_arr_sol			ft_calc_pos(t_arr_sol var);
+
 int ft_read_line_len(void)
 {
 	int	k;
@@ -94,48 +96,50 @@ int	ft_set_array(void)
 	return (1);
 }
 
+t_arr_sol	ft_calc_pos(t_arr_sol var)
+{
+	while(var.curr.size > var.larg.size && (var.k + var.curr.y + 1) < map_info.map_lines)
+	{
+		var.curr.y++;
+		var.curr.x = 0;
+		while (map_arr[var.k + var.curr.y][var.l + var.curr.x] == map_info.empty && var.curr.x < var.curr.size)
+			var.curr.x++;
+		if (var.curr.x + 1 < var.curr.size)
+			var.curr.size = var.curr.x + 1;
+		if (var.curr.y >= var.larg.size && var.curr.size > var.larg.size)
+		{
+			var.larg.x = var.l;
+			var.larg.y = var.k;
+			var.larg.size = var.curr.y + 1;
+		}
+		printf("\t\t\t\t\t\t\tvar.larg.size: [%i]\n", var.larg.size); //DEBUG CODE
+		//printf("\t\t\t\t\t\t\tvar.curr.size: [%i]\n", var.curr.size); //DEBUG CODE
+		//printf("hello me\n");
+	}
+	return (var);
+}
+
 int	ft_array_solution(void)
 {
-	int	k;
-	int	l;
-	t_square		current;
-	t_square		largest;
+	t_arr_sol	var;
 
-	k = 0;
-	l = 0;
-	while (map_arr[k] && k < (map_info.map_lines - largest.size))
+	var.k = 0;
+	var.l = 0;
+	while (map_arr[var.k] && var.k < (map_info.map_lines - var.larg.size))
 	{
-		while (map_arr[k][l]  && l < (map_info.line_len - largest.size))
+		while (map_arr[var.k][var.l]  && var.l < (map_info.line_len - var.larg.size))
 		{
-			current.y = 0;
-			current.size = 0;
-			while (map_arr[k][l + current.size] == map_info.empty)
-				current.size++;
-			while(current.size > largest.size && (k + current.y + 1) < map_info.map_lines)
-			{
-				current.y++;
-				current.x = 0;
-				while (map_arr[k + current.y][l + current.x] == map_info.empty && current.x < current.size)
-					current.x++;
-				if (current.x + 1 < current.size)
-					current.size = current.x + 1;
-				if (current.y >= largest.size && current.size > largest.size)//debug edit
-				{
-					largest.x = l;
-					largest.y = k;
-					largest.size = current.y + 1;
-					printf("\t\tlargest.x = %i\n", l);
-					printf("\t\tlargest.y = %i\n", k);
-				}
-				printf("\t\t\t\t\t\t\tLargest.size: [%i]\n", largest.size); //DEBUG CODE
-				printf("\t\t\t\t\t\t\tCurrent.size: [%i]\n", current.size); //DEBUG CODE
-			}
-			l++;
+			var.curr.y = 0;
+			var.curr.size = 0;
+			while (map_arr[var.k][var.l + var.curr.size] == map_info.empty)
+				var.curr.size++;
+			var = ft_calc_pos(var);
+			var.l++;
 		}
-		l = 0;
-		k++;
+		var.l = 0;
+		var.k++;
 	}
-	largest_solution = largest;
+	largest_solution = var.larg;
 	return (1);
 }
 
