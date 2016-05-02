@@ -13,7 +13,7 @@
 #include "bsq.h"
 
 t_arr_sol			ft_calc_pos(t_arr_sol var);
-t_set_arr			ft_line_state(t_set_arr var);
+t_std_var			ft_line_state(t_std_var var);
 int					ft_set_arr_proc(int procedure);
 
 int ft_read_line_len(void)
@@ -76,7 +76,7 @@ int	ft_read_map_info(void)
 	return (1);
 }
 
-t_set_arr	ft_line_state(t_set_arr var)
+t_std_var	ft_line_state(t_std_var var)
 {
 	if (var.buff == '\n' && var.l == (map_info.line_len))
 	{
@@ -90,7 +90,7 @@ t_set_arr	ft_line_state(t_set_arr var)
 
 int	ft_set_array(void)
 {
-	t_set_arr	var;
+	t_std_var	var;
 	
 	var.k = 0;
 	var.l = 0;

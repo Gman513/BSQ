@@ -12,7 +12,7 @@
 
 #include "bsq.h"
 
-#include <stdio.h> //DEBUG CODE
+t_read_stdi	ft_handle_case(t_read_stdi var);
 
 int 		main(int argc, char **argv)
 {
@@ -40,7 +40,6 @@ int			ft_read_map(void)
 {
 
 	fd = open(file_name, O_RDONLY);
-	//printf("ft_read_map fd = %i\n", fd); //DEBUG CODE
 	if (fd != -1)
 		return (1);
 	else
@@ -65,44 +64,46 @@ void		ft_solve_map(void)
 	ft_manage_array(0);
 }
 
+t_read_stdi	ft_handle_case(t_read_stdi var)
+{
+	if (var.buff == '"' && var.quote == 0)
+	{
+		var.pos++;
+		var.quote = 1;
+	}
+	else if (var.buff == '"' && var.quote == 1 && var.pos > 0)
+	{
+		var.quote = 0;
+		file_name[var.pos] = '\0';
+		ft_solve_map();
+		var.pos = 0;
+	}
+	else if (((var.buff == ' ' && var.quote == 0) || var.buff == '\n') && var.pos > 0)
+	{
+		file_name[var.pos] = '\0';
+		ft_solve_map();
+		var.pos = 0;
+	}
+	else
+	{
+		file_name[var.pos] = var.buff;
+		var.pos++;
+	}
+	return (var);
+}
+
 void		ft_readstdi(void)
 {
-	int		position;
-	int		quotes;
-	char	buff;
+	t_read_stdi	var;
 	
-	position = 0;
-	quotes = 0;
+	var.pos = 0;
+	var.quote = 0;
 	file_name = malloc(sizeof(char)*255);
 	if (file_name != NULL)
 	{
-		while (buff != '\n' && read(0, &buff, 1))
+		while (var.buff != '\n' && read(0, &var.buff, 1))
 		{
-			if (buff == '"' && quotes == 0)
-			{
-				position++;
-				quotes = 1;
-			}
-			else if (buff == '"' && quotes == 1 && position > 0)
-			{
-				quotes = 0;
-				file_name[position] = '\0';
-					//printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
-				ft_solve_map();
-				position = 0;
-			}
-			else if (((buff == ' ' && quotes == 0) || buff == '\n') && position > 0)
-			{
-				file_name[position] = '\0';
-					//printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
-				ft_solve_map();
-				position = 0;
-			}
-			else
-			{
-				file_name[position] = buff;
-				position++;
-			}			
+			var = ft_handle_case(var);		
 		}
 		free(file_name);
 	}
@@ -118,5 +119,4 @@ void		ft_display_map(void)
 		write(1,map_arr[line], map_info.line_len + 1);
 		line++;
 	}
-	//printf("Reaches end of ft_display_map\n"); //DEBUG CODE
 }

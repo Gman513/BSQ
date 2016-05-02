@@ -53,17 +53,24 @@ typedef struct		s_arr_sol
 	t_square		larg;
 }					t_arr_sol;
 
-typedef struct		s_set_arr
+typedef struct		s_std_var
 {
 	char			buff;
 	int				k;
 	int				l;
-}					t_set_arr;
+}					t_std_var;
+
+typedef struct		s_read_stdi
+{
+	int		pos;
+	int		quote;
+	char	buff;
+}					t_read_stdi;
 
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to ss
 repeatedly pass them back and forth between functions."*/
-t_map_info			map_info;//contains info on the current map.
+t_map_info			map_info;
 int					fd;
 char				*file_name;
 char				**map_arr;
