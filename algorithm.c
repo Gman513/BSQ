@@ -61,14 +61,24 @@ int	ft_array_solution(void)
 int			ft_single(void)
 {
 	int		k;
+	int		l;
 	
 	k = 0;
-	while (map_arr[0][k] < map_info.line_len && map_arr[0][k] != map_info.empty)
-		k++;
-	if (map_arr[0][k] == map_info.empty)
+	l = 0;
+	while (l < map_info.map_lines && CONDITIONSIX)
+	{
+		while (k < map_info.line_len && CONDITIONSIX)
+			k++;
+		if (k >= map_info.line_len && CONDITIONSIX)
+		{
+			l++;
+			k = 0;
+		}
+	}
+	if (l < map_info.map_lines && k < map_info.line_len)
 	{
 		largest_solution.x = k;
-		largest_solution.y = 0;
+		largest_solution.y = l;
 		largest_solution.size = 1;
 		return (1);
 	}

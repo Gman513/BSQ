@@ -17,7 +17,8 @@
 #define CONDITIONTWO var.buff != map_info.empty
 #define CONDITIONTHREE var.curr.size > var.larg.size
 #define CONDITIONFOUR map_arr[var.k + var.curr.y][var.l + var.curr.x]
-#define CONDITIONFIVE map_arr[var.k][var.l]
+#define	CONDITIONFIVE map_arr[var.k][var.l]
+#define	CONDITIONSIX map_arr[l][k] != map_info.empty
 #define ADDSOLUTION map_arr[k + largest_solution.y][l + largest_solution.x]
 
 #include <unistd.h>
