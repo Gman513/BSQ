@@ -53,6 +53,13 @@ typedef struct		s_arr_sol
 	t_square		larg;
 }					t_arr_sol;
 
+typedef struct		s_set_arr
+{
+	char			buff;
+	int				k;
+	int				l;
+}					t_set_arr;
+
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to ss
 repeatedly pass them back and forth between functions."*/

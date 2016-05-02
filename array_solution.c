@@ -63,35 +63,39 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	else return (0);
 	return (1);
 }
-
+t_set_arr	ft_line_state(t_set_arr var)
+{
+	if (var.buff == '\n' && var.l == (map_info.line_len))
+	{
+		var.l = 0;
+		var.k++;
+	}
+	else 
+		var.l++;
+	return (var);
+}
 int	ft_set_array(void)
 {
-	char			buff;
-	int	k;
-	int	l;
+	t_set_arr	var;
 	
-	k = 0;
-	l = 0;
+	var.k = 0;
+	var.l = 0;
 	if (map_info.line_len == 0)
 		return (0);
 	ft_manage_array(1);
-	while(read(fd, &buff, 1) == 1 && k < map_info.map_lines)
+	while(read(fd, &var.buff, 1) == 1 && var.k < map_info.map_lines)
 	{
-		map_arr[k][l] = buff;
-		if (buff != map_info.empty && buff != map_info.obstacle && buff != '\n')
+		map_arr[var.k][var.l] = var.buff;
+		if (var.buff != map_info.empty && var.buff != map_info.obstacle && var.buff != '\n')
 			return (0);
-		else if (buff == '\n' && l != (map_info.line_len))
+		else if (var.buff == '\n' && var.l != (map_info.line_len))
 			return (0);
-		else if (buff == '\n' && l == (map_info.line_len))
-		{
-			l = 0;
-			k++;
-		}
-		else l++;
-		if (l > map_info.line_len)
+		else 
+			var = ft_line_state(var);
+		if (var.l > map_info.line_len)
 			return (0);
 	}
-	if (k != map_info.map_lines || (read(fd, &buff, 1)))
+	if (var.k != map_info.map_lines || (read(fd, &var.buff, 1)))
 		return (0);
 	return (1);
 }
