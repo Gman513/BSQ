@@ -13,7 +13,6 @@
 #ifndef __BSQ_H__
 #define __BSQ_H__
 
-#include <stdio.h> //DEBUG CODE
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
