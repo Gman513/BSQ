@@ -13,6 +13,7 @@
 #include "bsq.h"
 
 t_arr_sol			ft_calc_pos(t_arr_sol var);
+t_set_arr			ft_line_state(t_set_arr var);
 
 int ft_read_line_len(void)
 {
@@ -34,7 +35,7 @@ int ft_read_line_len(void)
 	return (1);	
 }
 
-int	ft_read_map_info(void) //need to write a sub function to reduce the number of lines, or create a loop...
+int	ft_read_number(void)
 {
 	char	buff;
 	
@@ -50,7 +51,17 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	}
 	if (buff != '\n' && map_info.map_lines != 0)
 		map_info.empty = buff;
-	else return (0);
+	else 
+		return (0);
+	return (1);
+}
+
+int	ft_read_map_info(void) //need to write a sub function to reduce the number of lines, or create a loop...
+{
+	char	buff;
+	
+	if (!(ft_read_number()))
+		return (0);
 	if (!(read(fd, &buff, 1)))
 			return (0);
 	if (buff != '\n')
@@ -63,6 +74,7 @@ int	ft_read_map_info(void) //need to write a sub function to reduce the number o
 	else return (0);
 	return (1);
 }
+
 t_set_arr	ft_line_state(t_set_arr var)
 {
 	if (var.buff == '\n' && var.l == (map_info.line_len))
@@ -74,6 +86,7 @@ t_set_arr	ft_line_state(t_set_arr var)
 		var.l++;
 	return (var);
 }
+
 int	ft_set_array(void)
 {
 	t_set_arr	var;
