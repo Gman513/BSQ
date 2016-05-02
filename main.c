@@ -40,7 +40,7 @@ int			ft_read_map(void)
 {
 
 	fd = open(file_name, O_RDONLY);
-	printf("ft_read_map fd = %i\n", fd); //DEBUG CODE
+	//printf("ft_read_map fd = %i\n", fd); //DEBUG CODE
 	if (fd != -1)
 		return (1);
 	else
@@ -50,15 +50,15 @@ int			ft_read_map(void)
 void		ft_solve_map(void)
 {
 	if (!(ft_read_map()))
-		write(1, "map error\n", 9);
+		write(1, "map error\n", 10);
 	else if (!(ft_read_map_info()))
-		write(1, "map error\n", 9);
+		write(1, "map error\n", 10);
 	else if (!(ft_read_line_len()))
-		write(1, "map error\n", 9);
+		write(1, "map error\n", 10);
 	else if (!(ft_set_array()))
-		write(1, "map error\n", 9);
+		write(1, "map error\n", 10);
 	else if (!(ft_array_solution()))
-		write(1, "map error\n", 9);
+		write(1, "map error\n", 10);
 	else if (ft_add_solution())
 		ft_display_map();
 	close(fd);
@@ -87,14 +87,14 @@ void		ft_readstdi(void)
 			{
 				quotes = 0;
 				file_name[position] = '\0';
-					printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
+					//printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
 				ft_solve_map();
 				position = 0;
 			}
 			else if (((buff == ' ' && quotes == 0) || buff == '\n') && position > 0)
 			{
 				file_name[position] = '\0';
-					printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
+					//printf("ft_readstdi file_name = %s\n", file_name); //DEBUG CODE
 				ft_solve_map();
 				position = 0;
 			}
@@ -118,5 +118,5 @@ void		ft_display_map(void)
 		write(1,map_arr[line], map_info.line_len + 1);
 		line++;
 	}
-	printf("Reaches end of ft_display_map\n"); //DEBUG CODE
+	//printf("Reaches end of ft_display_map\n"); //DEBUG CODE
 }
