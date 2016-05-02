@@ -49,7 +49,7 @@ int			ft_read_map(void)
 
 void		ft_solve_map(void)
 {
-	if (!(ft_read_map()))
+	if (!(ft_set_var()) || !(ft_read_map()))
 		write(1, "map error\n", 10);
 	else if (!(ft_read_map_info()))
 		write(1, "map error\n", 10);

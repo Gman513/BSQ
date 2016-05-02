@@ -213,3 +213,16 @@ int	ft_add_solution(void)
 	}
 	return (1);
 }
+
+int	ft_set_var(void)
+{
+	map_info.map_lines = 0;
+	map_info.line_len = 0;
+	map_info.empty = 0;
+	map_info.obstacle = 0;
+	map_info.full = 0;
+	largest_solution.x = 0;
+	largest_solution.y = 0;
+	largest_solution.size = 0;
+	return (1);
+}
