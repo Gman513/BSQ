@@ -78,7 +78,7 @@ t_read_stdi	ft_handle_case(t_read_stdi var)
 		ft_solve_map();
 		var.pos = 0;
 	}
-	else if (((var.buff == ' ' && var.quote == 0) || var.buff == '\n') && var.pos > 0)
+	else if ((CONDITIONONE || var.buff == '\n') && var.pos > 0)
 	{
 		file_name[var.pos] = '\0';
 		ft_solve_map();

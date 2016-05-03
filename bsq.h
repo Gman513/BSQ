@@ -13,6 +13,13 @@
 #ifndef __BSQ_H__
 #define __BSQ_H__
 
+#define CONDITIONONE (var.buff == ' ' && var.quote == 0)
+#define CONDITIONTWO var.buff != map_info.empty
+#define CONDITIONTHREE var.curr.size > var.larg.size
+#define CONDITIONFOUR map_arr[var.k + var.curr.y][var.l + var.curr.x]
+#define CONDITIONFIVE map_arr[var.k][var.l]
+#define ADDSOLUTION map_arr[k + largest_solution.y][l + largest_solution.x]
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>

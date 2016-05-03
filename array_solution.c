@@ -100,7 +100,7 @@ int	ft_set_array(void)
 	while(read(fd, &var.buff, 1) == 1 && var.k < map_info.map_lines)
 	{
 		map_arr[var.k][var.l] = var.buff;
-		if (var.buff != map_info.empty && var.buff != map_info.obstacle && var.buff != '\n')
+		if (CONDITIONTWO && var.buff != map_info.obstacle && var.buff != '\n')
 			return (0);
 		else if (var.buff == '\n' && var.l != (map_info.line_len))
 			return (0);
@@ -116,11 +116,11 @@ int	ft_set_array(void)
 
 t_arr_sol	ft_calc_pos(t_arr_sol var)
 {
-	while(var.curr.size > var.larg.size && (var.k + var.curr.y + 1) < map_info.map_lines)
+	while(CONDITIONTHREE && (var.k + var.curr.y + 1) < map_info.map_lines)
 	{
 		var.curr.y++;
 		var.curr.x = 0;
-		while (map_arr[var.k + var.curr.y][var.l + var.curr.x] == map_info.empty && var.curr.x < var.curr.size)
+		while (CONDITIONFOUR == map_info.empty && var.curr.x < var.curr.size)
 			var.curr.x++;
 		if (var.curr.x + 1 < var.curr.size)
 			var.curr.size = var.curr.x + 1;
@@ -143,7 +143,7 @@ int	ft_array_solution(void)
 	var.l = 0;
 	while (map_arr[var.k] && var.k < (map_info.map_lines - var.larg.size))
 	{
-		while (map_arr[var.k][var.l]  && var.l < (map_info.line_len - var.larg.size))
+		while (CONDITIONFIVE  && var.l < (map_info.line_len - var.larg.size))
 		{
 			var.curr.y = 0;
 			var.curr.size = 0;
@@ -209,7 +209,7 @@ int	ft_add_solution(void)
 		l = 0;
 		while(l < largest_solution.size)
 		{
-			map_arr[k + largest_solution.y][l + largest_solution.x] = map_info.full;
+			ADDSOLUTION = map_info.full;
 			l++;
 		}
 		k++;
