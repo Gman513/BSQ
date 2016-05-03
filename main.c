@@ -108,15 +108,3 @@ void		ft_readstdi(void)
 		free(file_name);
 	}
 }
-
-void		ft_display_map(void)
-{
-	int		line;
-	
-	line = 0;
-	while (line != map_info.map_lines)
-	{
-		write(1,map_arr[line], map_info.line_len + 1);
-		line++;
-	}
-}

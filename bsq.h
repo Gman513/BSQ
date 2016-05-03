@@ -24,18 +24,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-int					ft_read_map(void);
-void				ft_solve_map(void);
-void				ft_readstdi(void);
-void				ft_display_map(void);
-int					ft_read_map_info(void);
-int					ft_read_line_len(void);
-int					ft_set_array(void);
-int					ft_array_solution(void);
-int					ft_manage_array (int procedure);
-int					ft_add_solution(void);
-int					ft_set_var(void);
-
 typedef struct		s_square
 {
 	int				x;
@@ -73,6 +61,21 @@ typedef struct		s_read_stdi
 	int		quote;
 	char	buff;
 }					t_read_stdi;
+
+int					ft_read_map(void);
+void				ft_solve_map(void);
+void				ft_readstdi(void);
+void				ft_display_map(void);
+int					ft_read_map_info(void);
+int					ft_read_line_len(void);
+int					ft_set_array(void);
+int					ft_array_solution(void);
+int					ft_manage_array (int procedure);
+int					ft_add_solution(void);
+int					ft_set_var(void);
+t_arr_sol			ft_calc_pos(t_arr_sol var);
+t_std_var			ft_line_state(t_std_var var);
+int					ft_set_arr_proc(int procedure);
 
 /*"The following global variables are accessed multiple times throughout the 
 programs functions, making it an unnecessary use of cpu cycles and memory to ss

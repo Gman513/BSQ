@@ -1,5 +1,5 @@
 NAME = bsq
-SRCS = main.c bsq.h array_solution.c
+SRCS = main.c bsq.h array_solution.c algorithm.c checks.c
 CC = gcc -o
 CFLAGS = -Wall -Werror -Wextra
 
